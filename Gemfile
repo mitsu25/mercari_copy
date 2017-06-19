@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# default
 gem 'rails', '~> 5.0.3'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.0'
@@ -37,3 +38,15 @@ group :production do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# haml用
+gem 'haml-rails'
+
+# erbからhamlへ変換用
+gem 'erb2haml'
+
+#font-awesome用
+gem 'font-awesome-rails'
+
+#ユーザ管理用
+gem 'devise'
