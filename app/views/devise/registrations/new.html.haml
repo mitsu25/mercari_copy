@@ -1,0 +1,46 @@
+.container
+  %header
+    .header__content.clearfix
+      .header__content__logo
+        =image_tag "logos/copicari.png" do
+          =link_to root_path class: "logo"
+      %ul.header__content__progress_bar.clearfix
+        %li.header__content__progress_bar__item.stage1 会員情報
+        %li.header__content__progress_bar__item.stage2 住所入力
+        %li.header__content__progress_bar__item.stage3 支払い方法
+        %li.header__content__progress_bar__item.stage4 完了
+  .main
+    .form
+      .form__title 会員情報入力
+      .form__body
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .form__field
+            = f.label "ニックネーム", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.email_field :email, placeholder: "例）コピカリ太郎", class: "form__field__form"
+          .form__field
+            = f.label "メールアドレス", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.email_field :email, autofocus: true, placeholder: "PC・携帯どちらでも可", class: "form__field__form"
+          .form__field
+            = f.label "パスワード", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.password_field :password, autocomplete: "off", placeholder: "#{@minimum_password_length} 文字以上", class: "form__field__form"
+          .form__field
+            = f.label "パスワード（確認）", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.password_field :password_confirmation, autocomplete: "off", placeholder: "#{@minimum_password_length} 文字以上", class: "form__field__form"
+          .form__field
+            = f.submit "次へ進む", class: "form__field__button"
+  %footer
+    %ul.footer__links.clearfix
+      %li.footer__links__item プライバシーポリシー
+      %li.footer__links__item 利用規約
+      %li.footer__links__item 特定商取引に関する表記
+    = image_tag "logos/copicari_logo_small.png"
+    %p.footer__copy_rights ©2017 copicari
