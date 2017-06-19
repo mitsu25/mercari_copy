@@ -1,0 +1,13 @@
+// リセットcss
+@import "./reset";
+
+// configファイル
+@import "./config/variables";
+
+// mixin
+@import "./mixin/mixin";
+
+//font_awesome
+@import "font-awesome";
+
+@import "./registration"
