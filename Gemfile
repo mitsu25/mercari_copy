@@ -50,3 +50,6 @@ gem 'font-awesome-rails'
 
 #ユーザ管理用
 gem 'devise'
+
+#住所登録の都道府県入力用Gem
+gem 'jp_prefecture'

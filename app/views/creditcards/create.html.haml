@@ -1,0 +1,10 @@
+.container
+  %header
+    = render partial: "layouts/registration_header"
+  .main
+    .form
+      .form__title 登録完了
+      .form__body
+        .link_field
+          = link_to "トップページへ" ,root_path, class: "link_field__link"
+  = render partial: "layouts/registration_footer"
