@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources  :items,             only: :index
   resources  :addresses,         only: [:new, :create]
+  resources  :creditcards,       only: [:new, :create]
 end
