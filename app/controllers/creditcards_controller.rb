@@ -6,6 +6,8 @@ class CreditcardsController < ApplicationController
     @monthes    = set_monthes
   end
 
+  def create
+  end
 
   private
   def set_years

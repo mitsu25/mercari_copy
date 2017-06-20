@@ -1,9 +1,7 @@
 .container{
   background-color : $registration_background_color;
   text-align       : center;
-}
-
-header{
+  min-height       : 100%;
 }
 
 .header__content{
@@ -33,6 +31,10 @@ header{
       margin-right : 40px;
     }
   }
+}
+
+.main{
+  min-height: 330px;
 }
 
 .form{
@@ -118,6 +120,17 @@ header{
       line-height      : 40px;
 
     }
+  }
+}
+
+.link_field{
+  &__link{
+    clear      : both;
+    text-align : center;
+    display    : block;
+    color      : $registration_form_font_color;
+    text-decoration: none;
+    padding-top: 20px;
   }
 }
 
