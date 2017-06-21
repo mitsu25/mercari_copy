@@ -1,0 +1,48 @@
+.items_container{
+  width           : 100%;
+  padding         : 40px 0px;
+  padding-bottom  : 40px;
+}
+
+.section_title{
+  font-size       : 28px;
+  font-weight     : bold;
+}
+
+.category_name{
+  padding-top     : 20px;
+  font-size       : 22px;
+  font-weight     : bold;
+  margin-bottom   : 40px;
+}
+
+.item_content{
+  width           : 75%;
+  margin          : 0px auto;
+}
+.item_box{
+  float           : left;
+  background-color: white;
+  width           : 23%;
+  margin-right    : 2%;
+  margin-top      : 10px;
+  margin-bottom   : 10px;
+  &__image{
+    width         : 100%;
+  }
+  &__body{
+    text-align    : left;
+    padding       :10px;
+    &__name{
+      font-size   : 16px;
+      font-weight : 700;
+    }
+    &__price{
+      font-size   : 20px;
+      font-weight : 600;
+    }
+    &__tax{
+      font-size   : 10px;
+    }
+  }
+}
