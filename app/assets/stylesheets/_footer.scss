@@ -1,0 +1,39 @@
+.general_footer{
+  background-color : $footercolor;
+  width            : 100%;
+
+  &__logo{
+    width          : 200px;
+  }
+  &__copy_rights{
+    color          : white;
+    font-size      : 14px;
+  }
+}
+
+.sell_btn{
+  position         : fixed;
+  right            : 32px;
+  bottom           : 32px;
+  z-index          : 100;
+  display          : inline-block;
+  width            : 160px;
+  height           : 160px;
+  border-radius    : 50%;
+  background-color : $copicari_red;
+  color            : white;
+  text-decoration  : none;
+
+  &__text{
+    position       : relative;
+    left           : 55px;
+    top            : 25px;
+    font-size      : 22px;
+  }
+    &__icon{
+    position       : relative;
+    left           : 50px;
+    top            : 30px;
+    font-size      : 54px;
+  }
+}

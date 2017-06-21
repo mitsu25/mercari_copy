@@ -1,0 +1,60 @@
+.general_header{
+  background-color: white;
+}
+.header__inner{
+  width          : 1020px;
+  margin         : 0px auto;
+  padding-top    : 8px;
+  padding-bottom : 8px;
+
+  &__logo_container{
+    width:100%;
+  }
+
+  &__logo{
+    display: inline-block;
+    width  : 135px;
+  }
+
+  &__form{
+    display: inline-block;
+    width  : calc(100% - 135px);
+
+    &__text_field{
+      width   : 80%;
+    }
+  }
+  &__links{
+    padding-top: 5px;
+    &__left{
+      float: left;
+    }
+    &__right{
+      float: right;
+    }
+    &__item{
+      float:left;
+      font-size: 14px;
+      margin-right: 10px;
+      &--red{
+        padding:0px 16px;
+        line-height: 30px;
+        color: white;
+        background-color: $copicari_red;
+        border-radius: 4px;
+      }
+      &--blue{
+        padding: 0px 16px;
+        line-height: 30px;
+        color: $copicari_blue;
+        border:1px solid $copicari_blue;
+        border-radius: 4px;
+        transition: all 500ms 0s ease;
+      }
+      &--blue:hover{
+        color            : white;
+        background-color : $copicari_blue;
+      }
+    }
+  }
+}

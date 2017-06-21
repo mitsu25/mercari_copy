@@ -1,0 +1,15 @@
+.header__inner.clearfix
+  .header__inner__logo_container
+    =image_tag "logos/copicari.png", class: "header__inner__logo" do
+      =link_to root_path class: "logo"
+    = form_tag "root_path", class: "header__inner__form" do
+      %input.header__inner__form__text_field{name:"keyword", placeholder:"検索機能はまだありません", type:"search"}
+      %button.header__inner__form__btn
+        %i.fa.fa-search
+  .header__inner__links.clearfix
+    %ul.header__inner__links__left
+      %li.header__inner__links__item カテゴリー
+      %li.header__inner__links__item ブランド
+    %ul.header__inner__links__right
+      %li.header__inner__links__item.header__inner__links__item--red ログイン
+      %li.header__inner__links__item.header__inner__links__item--blue 新規会員登録
