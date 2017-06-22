@@ -1,74 +1,114 @@
 .form__inner{
-  border: 1px solid $copicari_back_ground_grey;
-  width: 100%;
+  border             : 1px solid $copicari_back_ground_grey;
+  width              : 100%;
   &__container{
-    width: 50%;
-    margin: 0px auto;
-    padding: 20px 0px;
+    width            : 50%;
+    margin           : 0px auto;
+    padding          : 20px 0px;
   }
 }
 
 .item_info{
-  text-align: center;
+  text-align         : center;
   &__item_image{
-    width: 50%;
+    width            : 50%;
   }
   &__item_name{
-    padding-top: 8px;
-    font-size: 16px;
-    font-weight: 600px;
+    padding-top      : 8px;
+    font-size        : 16px;
+    font-weight      : 600px;
   }
   &__price_info{
-    padding-top: 8px;
+    padding-top      : 8px;
     &__item_price{
-      display: inline-block;
-      margin-right: 10px;
-      font-size: 28px;
-      font-weight: 600;
-      line-height: 1.5;
+      display        : inline-block;
+      margin-right   : 10px;
+      font-size      : 28px;
+      font-weight    : 600;
+      line-height    : 1.5;
     }
     &__delivery_fee{
-      display: inline-block;
-      font-size: 14px;
-      vertical-align: bottom;
+      display        : inline-block;
+      font-size      : 14px;
+      vertical-align : bottom;
     }
   }
   &__total_info{
-    margin-top: 16px;
-    width: 100%;
+    margin-top       : 16px;
+    width            : 100%;
     &__title{
-    float: left;
-    font-size: 28px;
-    font-weight: 600;
+    float            : left;
+    font-size        : 28px;
+    font-weight      : 600;
     }
     &__price{
-    float: right;
-    font-size: 28px;
-    font-weight: 600;
+    float            : right;
+    font-size        : 28px;
+    font-weight      : 600;
     }
   }
   &__buy_btn{
-    margin-top: 16px;
-    background-color: $copicari_red;
+    margin-top       : 16px;
+    background-color : $copicari_red;
     & p{
-      color: white;
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 48px;
+      color          : white;
+      font-size      : 14px;
+      font-weight    : 600;
+      line-height    : 48px;
     }
   }
 }
 .buy_info{
   &__title{
-    font-size   : 14px;
-    font-weight : bold;
+    font-size        : 14px;
+    font-weight      : bold;
   }
   &__list{
-    padding-top : 8px;
-    font-size   : 14px;
+    padding-top      : 8px;
+    font-size        : 14px;
   }
 }
 
-.address_info{
+.transaction_info{
+  text-align         : center;
+  &__list span{
+    width            : 20px;
+    display          : inline-block;
+    position         : relative;
+    top              : -10px;
+    margin           : 0px 3px;
+    font-size        : 18px;
+  }
+  & p{
+    padding-top      : 8px;
+    font-size        : 12px;
+  }
+  & a{
+    display          : inline-block;
+    padding-top      : 10px;
+    font-size        : 12px;
+    text-decoration  : none;
+    color            : $copicari_blue;
+  }
+}
 
+.icon_face{
+  &--good{
+    position         : relative;
+  }
+  &--bad{
+    position         : relative;
+  }
+}
+
+.color{
+  &_good{
+    color            : $face_color_good;
+  }
+  &_normal{
+    color            : $face_color_normal;
+  }
+  &_bad{
+    color            : $face_color_bad;
+  }
 }
