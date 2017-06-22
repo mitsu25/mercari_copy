@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources  :items,             only: [:index, :show] do
     collection do
       get 'buy'
+      get 'finish'
     end
   end
   resources  :addresses,         only: [:new, :create]
