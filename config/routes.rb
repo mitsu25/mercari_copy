@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection do
       get 'buy'
       get 'finish'
+      get 'sell'
     end
   end
   resources  :addresses,         only: [:new, :create]
