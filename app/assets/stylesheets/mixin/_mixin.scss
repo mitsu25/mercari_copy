@@ -5,3 +5,12 @@
     clear   : both;
   }
 }
+
+@mixin sell_form_default{
+  margin-top  : 8px;
+  padding     : 10px 16px 8px;
+  border      : 1px solid $input_form_form_color;
+  font-size   : 16px;
+  color       : $input_form_font_color;
+  line-height : 24px;
+}

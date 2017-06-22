@@ -1,0 +1,57 @@
+.container
+  = render partial: "layouts/header_plane"
+  .main
+    .form
+      .form__inner
+        %p.form__title 購入が完了しました。
+      .form__inner
+        .form__inner__container
+          .item_info
+            = image_tag "logos/copicari_logo_small", class: "item_info__item_image"
+            %p.item_info__item_name copicari!!!
+            .item_info__price_info
+              %p.item_info__price_info__item_price ¥3,000
+              %p.item_info__price_info__delivery_fee 送料込み
+      .form__inner
+        .form__inner__container
+          %p.buy_info__title 配送先
+          .address_info
+            %ul.address_info__list.buy_info__list
+              %li.address_info__zip_code 〒000-0000
+              %li.address_info__address  東京都渋谷区〇〇〇
+              %li.address_info__name     小光 太郎
+      .form__inner
+        .form__inner__container
+          .payment_info
+            %p.buy_info__title 支払い方法
+            %ul.payment_info__list.buy_info__list
+              %li.payment_info__number       0000-0000-0000
+              %li.address_info__expire_date  〇〇/〇〇
+              %li.address_info__company      VISA
+      .form__inner
+        .form__inner__container
+          .transaction_info
+            %p.buy_info__title 発送通知後の流れ
+            %ul.transaction_info__list.buy_info__list
+              %li.transaction_info__list__item
+                %span.evaluation_icon.icon_face--good
+                  %i.icon.fa.fa-circle.fa-stack-1x.color_good
+                  %i.icon.fa.fa-smile-o.fa-stack-1x.fa-inverse
+                %span.evaluation_icon.icon_face--normal
+                  %i.icon.fa.fa-circle.fa-stack-1x.color_normal
+                  %i.icon.fa.fa-meh-o.fa-stack-1x.fa-inverse
+                %span.evaluation_icon.icon_face--bad
+                  %i.icon.fa.fa-circle.fa-stack-1x.color_bad
+                  %i.icon.fa.fa-frown-o.fa-stack-1x.fa-inverse
+              %li.transaction_info__list__item
+                %p.transaction_description
+                  商品を受け取ったら
+                  %br/
+                  出品者の評価をしましょう。
+                  %br/
+                  購入代金が出品者に振り込まれます。
+                  %br/
+                  評価後に取引は完了です。
+              %li.transaction_info__list__item
+                = link_to "マイページへもどる", root_path
+  = render partial: "layouts/registration_footer"

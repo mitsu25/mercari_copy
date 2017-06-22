@@ -10,10 +10,13 @@
 //font_awesome
 @import "font-awesome";
 
-@import "./registration";
-
+// テンプレート用
 @import "./header";
+@import "./footer";
 
+// 各種アクション用
+@import "./registration";
 @import "./index";
-
-@import "./footer"
+@import "./show";
+@import "./buy";
+@import "./sell"

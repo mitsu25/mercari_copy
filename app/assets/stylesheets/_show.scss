@@ -1,0 +1,76 @@
+.item_container{
+  width           : 60%;
+  margin          : 40px auto;
+  padding         : 40px;
+  background-color: white;
+}
+
+.item{
+  &__title{
+    font-size   : 20px;
+    font-weight : 600;
+  }
+
+  &__data_box{
+    margin-top  : 20px;
+  }
+  &__image_box{
+    width       : 50%;
+    float       : left;
+    &__upper__image{
+      width     : 100%;
+    }
+    &__bottom__image{
+      width     : 23%;
+    }
+  }
+
+  &__data_table{
+    width      : 45%;
+    padding    : 8px;
+    float      : left;
+    text-align : left;
+    font-size  : 14px;
+    border     : 1px solid $item_data_table_grey;
+    & th{
+      background-color : $item_data_table_grey;
+      padding          : 8px;
+    }
+    & td{
+      padding  : 8px;
+    }
+  }
+
+  &__price{
+    &__box{
+      padding-top  : 24px;
+    }
+    &__price{
+      font-size    : 50px;
+      font-weight  : 600;
+      margin-right : 16px;
+      &__tax{
+        font-size  : 10px;
+      }
+      &__delivary_fee{
+        font-size  : 16px;
+      }
+    }
+  }
+
+  &__purchase_btn{
+    width            : 100%;
+    margin-top       : 16px;
+    padding          : 10px 0px;
+    background-color : $copicari_red;
+    font-size        : 24px;
+    color            : white;
+  }
+
+  &__description{
+    margin-top  : 32px;
+    text-align  : left;
+    font-size   : 18px;
+    line-height : 27px;
+  }
+}

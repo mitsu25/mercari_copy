@@ -1,0 +1,38 @@
+.container
+  = render partial: "layouts/header"
+
+  .item_container
+    %h2.item__title アイテム名 Copicari!!!
+    .item__data_box.clearfix
+      .item__image_box
+        .item__image_box__upper
+          = image_tag "logos/copicari_logo_small", class: "item__image_box__upper__image"
+        .item__image_box__bottom
+          = image_tag "logos/copicari_logo_small", class: "item__image_box__bottom__image"
+          = image_tag "logos/copicari_logo_small", class: "item__image_box__bottom__image"
+          = image_tag "logos/copicari_logo_small", class: "item__image_box__bottom__image"
+          = image_tag "logos/copicari_logo_small", class: "item__image_box__bottom__image"
+      %table.item__data_table
+        %tr
+          %th 出品者
+          %td コピカリ太郎
+        %tr
+          %th カテゴリー
+          %td カテゴリー名
+        %tr
+          %th ブランド
+          %td ブランド名
+        %tr
+          %th 商品の状態
+          %td 新品
+        %tr
+          %th 送料の負担
+          %td 出品者
+    .item__price__box
+      %span.item__price__price ¥ 3,000.-
+      %span.item__price__tax   (税 ¥0)
+      %span.item__price__delivery_fee 送料込み
+    .item__purchase_btn 購入
+    .item__description この商品はサンプル品です。
+
+  = render partial: "layouts/footer"

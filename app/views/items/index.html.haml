@@ -1,17 +1,9 @@
 .container
-  %header.general_header
-    = render partial: "layouts/header"
+  = render partial: "layouts/header"
   .items_container
     %h2.section_title 新着アイテム
     %h3.category_name カテゴリー
     = render partial: "layouts/items_list"
     = render partial: "layouts/items_list"
     = render partial: "layouts/items_list"
-  %footer.general_footer
-    .general_footer__logo_container
-      =image_tag "logos/copicari_white.png", class: "general_footer__logo" do
-        =link_to root_path class: "logo"
-    %p.general_footer__copy_rights ©2017 copicari
-=link_to root_path, class: "sell_btn" do
-  .sell_btn__text 出品
-  %i.fa.fa-camera.sell_btn__icon
+  = render partial: "layouts/footer"
