@@ -42,14 +42,18 @@
         color: white;
         background-color: $copicari_red;
         border-radius: 4px;
+        text-decoration  : none;
+        display          : inline-block;
       }
       &--blue{
-        padding: 0px 16px;
-        line-height: 30px;
-        color: $copicari_blue;
-        border:1px solid $copicari_blue;
-        border-radius: 4px;
-        transition: all 500ms 0s ease;
+        padding          : 0px 16px;
+        line-height      : 30px;
+        color            : $copicari_blue;
+        border           :1px solid $copicari_blue;
+        border-radius    : 4px;
+        transition       : all 500ms 0s ease;
+        text-decoration  : none;
+        display          : inline-block;
       }
       &--blue:hover{
         color            : white;
