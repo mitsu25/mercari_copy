@@ -2,7 +2,7 @@
 lock "3.8.2"
 
 set :application, "mercari_copy"
-set :repo_url, "git@example.com:mitsu25/mercari_copy.git"
+set :repo_url, "git@github.com:mitsu25/mercari_copy.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
