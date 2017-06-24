@@ -27,6 +27,78 @@
             %i.form__field__must_info 必須
             %br
             = f.password_field :password_confirmation, autocomplete: "off", placeholder: "#{@minimum_password_length} 文字以上", class: "form__field__form"
+
           .form__field
-            = f.submit "次へ進む", class: "form__field__button"
+            = f.label "お名前", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.text_field :family_name, placeholder: "例）小光", class: "form__field__form"
+            %br
+            = f.text_field :first_name, placeholder: "例）太郎", class: "form__field__form"
+
+          .form__field
+            = f.label "お名前 カナ", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.text_field :family_name_kana, placeholder: "例）コヒカリ", class: "form__field__form"
+            %br
+            = f.text_field :first_name_kana, placeholder: "例）タロウ", class: "form__field__form"
+
+          .form__field
+            = f.label "郵便番号", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.text_field :zip_code, placeholder: "例）1234567", class: "form__field__form"
+
+          .form__field
+            = f.label "都道府県", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.collection_select :prefecture, JpPrefecture::Prefecture.all, :name, :name, {prompt: "選択してください" }, {class: "form__field__select"}
+
+          .form__field
+            = f.label "市町村区", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.text_field :city, placeholder: "例）渋谷区", class: "form__field__form"
+
+          .form__field
+            = f.label "町名", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.text_field :house_number, placeholder: "例）道玄坂9-99-99", class: "form__field__form"
+
+          .form__field
+            = f.label "町名", class: "form__field__label"
+            %i.form__field__optional_info 任意
+            %br
+            = f.text_field :building, placeholder: "例）小光ビル 707", class: "form__field__form"
+
+          .form__field
+            = f.label "電話番号", class: "form__field__label"
+            %i.form__field__optional_info 任意
+            %br
+            = f.text_field :telephone, placeholder: "例）123-1234-5678", class: "form__field__form"
+          .form__field
+            = f.label "カード番号", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.text_field :number, placeholder: "半角数字のみ", class: "form__field__form"
+          .form__field.clearfix
+            = f.label "有効期限", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.select :expire_month ,@monthes, {}, {class: "form__field__select form__field__select--small"}
+            = f.label "月", class: "form__field__label form__field__label--float"
+            = f.select :expire_year ,@years, {}, {class: "form__field__select form__field__select--small"}
+            = f.label "年", class: "form__field__label form__field__label--float"
+          .form__field
+            = f.label "セキュリティコード", class: "form__field__label"
+            %i.form__field__must_info 必須
+            %br
+            = f.text_field :number, placeholder: "例）1234", class: "form__field__form"
+            %p.form__field__noctice カード裏面の番号とは？
+          .form__field
+            = f.submit "登録完了", class: "form__field__button"
+          .form__field
   = render partial: "layouts/registration_footer"
