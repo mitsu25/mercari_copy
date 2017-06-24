@@ -1,0 +1,31 @@
+.log_in_form{
+  width                 : 460px;
+  margin                : 0px auto;
+  background-color      : white;
+  text-align            : center;
+  &__inner{
+    padding             : 40px 64px;
+    @include form_inner_border_bottom;
+    &__container{
+      width             : 100%;
+    }
+  }
+  & p{
+    font-size           : 14px;
+  }
+  &__btn{
+    display             : inline-block;
+    margin-top          : 8px;
+    width               : 100%;
+    line-height         : 50px;
+    background-color    : $copicari_blue;
+    color               : white;
+    text-decoration     : none;
+    &--red{
+      background-color  : $copicari_red;
+      border-style      : none;
+      margin-top        : 16px;
+      cursor            :pointer;
+    }
+  }
+}
