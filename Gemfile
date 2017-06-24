@@ -56,3 +56,8 @@ gem 'jp_prefecture'
 
 #デバッグ用
 gem 'pry-rails'
+
+#画像アップロード用
+gem 'carrierwave'
+gem 'mini_magick'
+
