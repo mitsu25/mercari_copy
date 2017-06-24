@@ -17,43 +17,61 @@
   }
 
   &__form{
-    display: inline-block;
-    width  : calc(100% - 135px);
+    display              : inline-block;
+    width                : calc(100% - 135px);
 
     &__text_field{
-      width   : 80%;
+      width              : 80%;
     }
   }
   &__links{
-    padding-top: 5px;
+    padding-top          : 5px;
     &__left{
-      float: left;
+      float              : left;
     }
     &__right{
-      float: right;
+      float              : right;
     }
     &__item{
-      float:left;
-      font-size: 14px;
-      margin-right: 10px;
+      float              : left;
+      margin-right       : 10px;
+      font-size          : 14px;
       &--red{
-        padding:0px 16px;
-        line-height: 30px;
-        color: white;
-        background-color: $copicari_red;
-        border-radius: 4px;
+        padding          : 0px 16px;
+        line-height      : 30px;
+        color            : white;
+        background-color : $copicari_red;
+        border-radius    : 4px;
+        text-decoration  : none;
+        display          : inline-block;
+      }
+      &--red_inversion{
+        display          : inline-block;
+        padding          : 0px 16px;
+        line-height      : 30px;
+        border           : 1px solid $copicari_red;
+        border-radius    : 4px;
+        color            : $copicari_red;
+        text-decoration  : none;
+        transition       : all 500ms 0s ease;
+        &:hover{
+          color            : white;
+          background-color : $copicari_red;
+        }
       }
       &--blue{
-        padding: 0px 16px;
-        line-height: 30px;
-        color: $copicari_blue;
-        border:1px solid $copicari_blue;
-        border-radius: 4px;
-        transition: all 500ms 0s ease;
-      }
-      &--blue:hover{
-        color            : white;
-        background-color : $copicari_blue;
+        display          : inline-block;
+        padding          : 0px 16px;
+        line-height      : 30px;
+        border           : 1px solid $copicari_blue;
+        border-radius    : 4px;
+        color            : $copicari_blue;
+        text-decoration  : none;
+        transition       : all 500ms 0s ease;
+        &:hover{
+          color            : white;
+          background-color : $copicari_blue;
+        }
       }
     }
   }

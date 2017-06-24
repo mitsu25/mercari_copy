@@ -1,36 +1,96 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "off"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.container
+  %header
+    = render partial: "layouts/header_plane"
+  .main
+    .form
+      .form__title 会員情報変更
+      .form__body
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .form__field
+            = f.label "ニックネーム", class: "form__field__label"
+            %br
+            = f.text_field :name, value: current_user.name, class: "form__field__form"
+          .form__field
+            = f.label "メールアドレス", class: "form__field__label"
+            %br
+            = f.email_field :email, autofocus: true, value: current_user.email, class: "form__field__form"
+          .form__field
+            = f.label "新パスワード", class: "form__field__label"
+            %br
+            = f.password_field :password, autocomplete: "off", place_holder: "パスワードを更新しない場合は空欄にしてください。", class: "form__field__form"
+
+          .form__field
+            = f.label "新パスワード（確認）", class: "form__field__label"
+            %br
+            = f.password_field :password_confirmation, autocomplete: "off", place_holder: "パスワードを更新しない場合は空欄にしてください。", class: "form__field__form"
+          .form__field
+            = f.label "現在のパスワード", class: "form__field__label"
+            %br
+            = f.password_field :current_password, autocomplete: "off",place_holder: "現在のパスワードを入力してください。", class: "form__field__form"
+
+          .form__field
+            = f.label "お名前", class: "form__field__label"
+            %br
+            = f.text_field :family_name, value: current_user.family_name, class: "form__field__form"
+            %br
+            = f.text_field :first_name, value: current_user.first_name, class: "form__field__form"
+
+          .form__field
+            = f.label "お名前 カナ", class: "form__field__label"
+            %br
+            = f.text_field :family_name_kana, value: current_user.family_name_kana, class: "form__field__form"
+            %br
+            = f.text_field :first_name_kana, value: current_user.first_name_kana, class: "form__field__form"
+
+          .form__field
+            = f.label "郵便番号", class: "form__field__label"
+            %br
+            = f.text_field :zip_code, value: current_user.zip_code, class: "form__field__form"
+
+          .form__field
+            = f.label "都道府県", class: "form__field__label"
+            %br
+            = f.collection_select :prefecture, JpPrefecture::Prefecture.all, :name, :name, { selected: current_user.prefecture }, { class: "form__field__select" }
+
+          .form__field
+            = f.label "市町村区", class: "form__field__label"
+            %br
+            = f.text_field :city, value: current_user.city, class: "form__field__form"
+
+          .form__field
+            = f.label "町名", class: "form__field__label"
+            %br
+            = f.text_field :house_number, value: current_user.house_number, class: "form__field__form"
+
+          .form__field
+            = f.label "町名", class: "form__field__label"
+            %br
+            = f.text_field :building, value: current_user.building, class: "form__field__form"
+
+          .form__field
+            = f.label "電話番号", class: "form__field__label"
+            %br
+            = f.text_field :telephone, value: current_user.telephone, class: "form__field__form"
+          .form__field
+            = f.label "カード番号", class: "form__field__label"
+            %br
+            = f.text_field :number, value: current_user.number, class: "form__field__form"
+          .form__field.clearfix
+            = f.label "有効期限", class: "form__field__label"
+            %br
+            = f.select :expire_month ,@monthes, { selected: current_user.expire_month }, { class: "form__field__select form__field__select--small" }
+            = f.label "月", class: "form__field__label form__field__label--float"
+            = f.select :expire_year ,@years, { selected: current_user.expire_year }, { class: "form__field__select form__field__select--small" }
+            = f.label "年", class: "form__field__label form__field__label--float"
+          .form__field
+            = f.label "セキュリティコード", class: "form__field__label"
+            %br
+            = f.text_field :number, value: current_user.number, class: "form__field__form"
+            %p.form__field__noctice カード裏面の番号とは？
+          .form__field
+            = f.submit "更新", class: "form__field__button"
+          .form__field
+            = link_to "戻る", root_path, class: "form__field__button form__field__button--grey"
+
+  = render partial: "layouts/registration_footer"

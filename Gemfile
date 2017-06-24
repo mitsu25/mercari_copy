@@ -53,3 +53,6 @@ gem 'devise'
 
 #住所登録の都道府県入力用Gem
 gem 'jp_prefecture'
+
+#デバッグ用
+gem 'pry-rails'
