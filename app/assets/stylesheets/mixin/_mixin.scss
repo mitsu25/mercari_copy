@@ -14,3 +14,7 @@
   color       : $input_form_font_color;
   line-height : 24px;
 }
+
+@mixin form_inner_border_bottom{
+  border-bottom: 1px solid $registration_background_color;
+}
