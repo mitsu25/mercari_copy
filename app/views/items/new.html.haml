@@ -37,7 +37,7 @@
               .sell_form__inner__container__sub_container--has_margin
                 %p.sell_form__label 商品の状態
                 %i.form__field__must_info 必須
-                = f.text_field :status, placeholder: "商品状態", class: "sell_form__input"
+                = f.select :delivery_untill, Item.statuses.keys, {prompt: "---"}, { class: "sell_form__input sell_form__input--select" }
 
         .sell_form__inner
           .sell_form__inner__container.clearfix
@@ -46,7 +46,7 @@
               .sell_form__inner__container__sub_container
                 %p.sell_form__label 配送量の負担
                 %i.form__field__must_info 必須
-                = f.text_field :delivery_fee, placeholder: "配送料の負担を入力してください", class: "sell_form__input"
+                = f.select :delivery_untill, Item.delivery_fees.keys, {prompt: "---"}, { class: "sell_form__input sell_form__input--select" }
               .sell_form__inner__container__sub_container--has_margin
                 %p.sell_form__label 配送の方法
                 %i.form__field__must_info 必須
@@ -58,7 +58,7 @@
               .sell_form__inner__container__sub_container--has_margin
                 %p.sell_form__label 発送までの日数
                 %i.form__field__must_info 必須
-                = f.text_field :delivery_untill, placeholder: "発送までの期間を入力しください", class: "sell_form__input"
+                = f.select :delivery_untill, Item.delivery_untills.keys, {prompt: "---"}, { class: "sell_form__input sell_form__input--select" }
 
         .sell_form__inner
           .sell_form__inner__container.clearfix

@@ -5,6 +5,7 @@ $(function(){
   var profitBox    = $('#profit_box');
   var preInput;
 
+  // 手数料、利益の自動計算用のメソッド
   function isInputInteger() {
     return Number.isInteger(Number(input))
   }
@@ -19,6 +20,7 @@ $(function(){
     profitBox.text("¥" + profit);
   }
 
+  // 手数料、利益の自動計算用のイベント
   $('#input_price').on('keyup', function(e){
     e.preventDefault();
     var input = $(this).val();

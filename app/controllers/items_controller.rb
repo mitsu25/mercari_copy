@@ -1,20 +1,23 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: :new
 
   def index
-    @items = Item.all.includes(:images)
+    @items = Item.all.includes(:images).each_slice(4).to_a
   end
 
   def show
+    @item = Item.find(params[:id])
+    @prefecture = JpPrefecture::Prefecture.find code: @item.delivery_from
   end
 
   def new
     @item = Item.new
+    binding.pry
   end
 
   def create
     @item  = Item.create(item_params)
     @image = Image.create(image_params(@item))
-    binding.pry
     redirect_to root_path
   end
 
