@@ -1,0 +1,88 @@
+.container
+  = render partial: "layouts/header_plane"
+  .main
+    .form
+      = form_for(@item) do |f|
+        .sell_form__inner
+          %p.form__title 商品の情報入力
+        .sell_form__inner
+          .sell_form__inner__container
+            =f.label "出品画像", class: "sell_form__label sell_form__label--large"
+            %i.form__field__must_info 必須
+            %p.sell_form__supplement 最大4枚までアップロードできます。
+            %p.sell_form__drop_box__supplement クリックしてファイルをアップロード
+            = f.label :image, "クリックしてファイルをアップロード", class: 'sell_form__drop_box' do
+              = f.file_field :image, style: "display: none;", id: 'item_image'
+        .sell_form__inner
+          .sell_form__inner__container
+            .sell_form__inner__container__sub_container
+              %p.sell_form__label 商品名
+              =f.label "商品名", class: "sell_form__label"
+              %i.form__field__must_info 必須
+              = f.text_field :name, placeholder: "商品名（必須 40文字まで）", class: "sell_form__input"
+            .sell_form__inner__container__sub_container
+              %p.sell_form__label 商品の説明
+              %i.form__field__must_info 必須
+              = f.text_area :description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライドグレーで傷はありません。あわせやすいのでおすすめです。", class: "sell_form__input sell_form__item_description"
+        .sell_form__inner
+          .sell_form__inner__container.clearfix
+            %p.sell_form__info_head 商品の詳細
+            .sell_form__inner__container--right
+              .sell_form__inner__container__sub_container
+                %p.sell_form__label カテゴリー
+                %i.form__field__must_info 必須
+                / = form_tag do
+                / = text_field :category, :name, placeholder: "上位カテゴリー", class: "sell_form__input"
+                = f.text_field :sub_category_id, placeholder: "下位カテゴリー", class: "sell_form__input"
+              .sell_form__inner__container__sub_container--has_margin
+                %p.sell_form__label 商品の状態
+                %i.form__field__must_info 必須
+                = f.text_field :status, placeholder: "商品状態", class: "sell_form__input"
+
+        .sell_form__inner
+          .sell_form__inner__container.clearfix
+            %p.sell_form__info_head 配送について
+            .sell_form__inner__container--right
+              .sell_form__inner__container__sub_container
+                %p.sell_form__label 配送量の負担
+                %i.form__field__must_info 必須
+                = f.text_field :delivery_fee, placeholder: "配送料の負担を入力してください", class: "sell_form__input"
+              .sell_form__inner__container__sub_container--has_margin
+                %p.sell_form__label 配送の方法
+                %i.form__field__must_info 必須
+                = f.text_field :delivery_by, placeholder: "配送方法を入力してください", class: "sell_form__input"
+              .sell_form__inner__container__sub_container--has_margin
+                %p.sell_form__label 発送元の地域
+                %i.form__field__must_info 必須
+                = f.collection_select :delivery_from, JpPrefecture::Prefecture.all, :code, :name, {prompt: "選択してください" }, {class: "sell_form__input sell_form__input--select"}
+              .sell_form__inner__container__sub_container--has_margin
+                %p.sell_form__label 発送までの日数
+                %i.form__field__must_info 必須
+                = f.text_field :delivery_untill, placeholder: "発送までの期間を入力しください", class: "sell_form__input"
+
+        .sell_form__inner
+          .sell_form__inner__container.clearfix
+            %p.sell_form__info_head 販売価格(300〜9,999,999)
+            .sell_form__inner__container--right
+              .sell_form__inner__container--for_price_form.clearfix
+                %p.sell_form__label 価格
+                %i.form__field__must_info 必須
+                = f.text_field :price, placeholder: "例）3000", class: "sell_form__price_form", id: "input_price"
+              .sell_form__inner__container__price_sub_container.clearfix.fs14
+                %p.sell_form__inner__container__price_sub_container__head 販売手数料(10%)
+                .sell_form__inner__container__price_sub_container__info#commission_box -
+              .sell_form__inner__container__price_sub_container.clearfix.fs16.bold
+                %p.sell_form__inner__container__price_sub_container__head 販売利益
+                .sell_form__inner__container__price_sub_container__info#profit_box -
+
+        .sell_form__inner
+          .sell_form__inner__container
+            %p.sell_form__notice
+              禁止されている出品、行為を必ずご確認ください。
+              %br/
+              またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+            .sell_form__inner__container__sub_container--has_margin
+              = f.submit "出品する", class: "form__btn form__btn--red"
+              = link_to "もどる", root_path, class: "form__btn form__btn--grey form__btn--small"
+
+  = render partial: "layouts/registration_footer"

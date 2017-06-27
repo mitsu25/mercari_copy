@@ -3,12 +3,11 @@ class CreateItems < ActiveRecord::Migration[5.0]
     create_table :items do |t|
       t.string      :name,             null: false
       t.integer     :price,            null: false
-      t.text        :descripation,     null: false
-      t.references  :brand
-      t.references  :category,         null: false
+      t.text        :description,      null: false
+      t.string      :brand
       t.references  :sub_category,     null: false
       t.references  :size
-      t.references  :sller,            index: true
+      t.references  :user,             index: true
       t.references  :buyer,            index: true
       t.integer     :status,           null: false
       t.integer     :delivery_fee,     null: false
