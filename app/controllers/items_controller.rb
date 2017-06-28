@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    binding.pry
   end
 
   def create
