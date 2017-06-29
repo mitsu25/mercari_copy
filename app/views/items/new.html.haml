@@ -28,16 +28,16 @@
           .sell_form__inner__container.clearfix
             %p.sell_form__info_head 商品の詳細
             .sell_form__inner__container--right
-              .sell_form__inner__container__sub_container
+              .sell_form__inner__container__sub_container#category_select_box
                 %p.sell_form__label カテゴリー
                 %i.form__field__must_info 必須
                 / = form_tag do
-                / = text_field :category, :name, placeholder: "上位カテゴリー", class: "sell_form__input"
-                = f.text_field :sub_category_id, placeholder: "下位カテゴリー", class: "sell_form__input"
+                = select :category, :root_category_id, @root_categories.map{|t| [t.name, t.id]}, {prompt: "---"}, { class: "sell_form__input sell_form__input--select", id:"root_category_select" }
+                / = f.text_field :sub_category_id, placeholder: "下位カテゴリー", class: "sell_form__input"
               .sell_form__inner__container__sub_container--has_margin
                 %p.sell_form__label 商品の状態
                 %i.form__field__must_info 必須
-                = f.select :delivery_untill, Item.statuses.keys, {prompt: "---"}, { class: "sell_form__input sell_form__input--select" }
+                = f.select :status, Item.statuses.keys, {prompt: "---"}, { class: "sell_form__input sell_form__input--select" }
 
         .sell_form__inner
           .sell_form__inner__container.clearfix
@@ -46,11 +46,12 @@
               .sell_form__inner__container__sub_container
                 %p.sell_form__label 配送量の負担
                 %i.form__field__must_info 必須
-                = f.select :delivery_untill, Item.delivery_fees.keys, {prompt: "---"}, { class: "sell_form__input sell_form__input--select" }
+                = f.select :delivery_fee, Item.delivery_fees.keys, {prompt: "---"}, { class: "sell_form__input sell_form__input--select" }
               .sell_form__inner__container__sub_container--has_margin
                 %p.sell_form__label 配送の方法
                 %i.form__field__must_info 必須
-                = f.text_field :delivery_by, placeholder: "配送方法を入力してください", class: "sell_form__input"
+                = f.select :delivery_by, Item.delivery_bies.keys, {prompt: "---"}, { class: "sell_form__input sell_form__input--select" }
+                / # = f.text_field :delivery_by, placeholder: "配送方法を入力してください", class: "sell_form__input"
               .sell_form__inner__container__sub_container--has_margin
                 %p.sell_form__label 発送元の地域
                 %i.form__field__must_info 必須

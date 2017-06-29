@@ -7,6 +7,6 @@ Rails.application.routes.draw do
       get 'finish'
     end
   end
-  resources  :addresses,         only: [:new, :create]
-  resources  :creditcards,       only: [:new, :create]
+  resources  :sub_categories,    only: :index
+  resources  :categories,        only: :index
 end

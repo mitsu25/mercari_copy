@@ -18,7 +18,12 @@
           %td #{@item.user.name}
         %tr
           %th カテゴリー
-          %td #{@item.sub_category_id}
+          %td
+            #{@item.sub_category.category.root_category.name}
+            %br/
+            > #{@item.sub_category.category.name}
+            %br/
+            > #{@item.sub_category.name}
         %tr
           %th ブランド
           %td #{@item.brand}

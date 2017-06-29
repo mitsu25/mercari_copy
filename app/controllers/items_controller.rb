@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @root_categories = RootCategory.all
   end
 
   def create
