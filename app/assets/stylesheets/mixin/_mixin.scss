@@ -7,14 +7,23 @@
 }
 
 @mixin sell_form_default{
-  margin-top  : 8px;
-  padding     : 10px 16px 8px;
-  border      : 1px solid $input_form_form_color;
-  font-size   : 16px;
-  color       : $input_form_font_color;
-  line-height : 24px;
+  display       : block;
+  width         : 95%;
+  margin-top    : 8px;
+  padding       : 10px 16px 8px;
+  border        : 1px solid $input_form_form_color;
+  border-radius : 4px;
+  font-size     : 16px;
+  color         : $input_form_font_color;
+  line-height   : 24px;
+
 }
 
+@mixin select_form_default{
+  width             : 414px;
+  height            : 44px;
+  background-color  : white;
+}
 @mixin form_inner_border_bottom{
   border-bottom: 1px solid $registration_background_color;
 }

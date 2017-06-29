@@ -10,7 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623094731) do
+ActiveRecord::Schema.define(version: 20170629065954) do
+
+  create_table "buyers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "item_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_buyers_on_item_id", using: :btree
+    t.index ["user_id"], name: "index_buyers_on_user_id", using: :btree
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "root_category_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["root_category_id"], name: "index_categories_on_root_category_id", using: :btree
+  end
+
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "item_id"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id", using: :btree
+  end
+
+  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                          null: false
+    t.integer  "price",                         null: false
+    t.text     "description",     limit: 65535, null: false
+    t.string   "brand"
+    t.integer  "sub_category_id",               null: false
+    t.integer  "size_id"
+    t.integer  "user_id"
+    t.integer  "buyer_id"
+    t.integer  "status",                        null: false
+    t.integer  "delivery_fee",                  null: false
+    t.integer  "delivery_by",                   null: false
+    t.integer  "delivery_from",                 null: false
+    t.integer  "delivery_untill",               null: false
+    t.integer  "stock_status"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
+    t.index ["size_id"], name: "index_items_on_size_id", using: :btree
+    t.index ["sub_category_id"], name: "index_items_on_sub_category_id", using: :btree
+    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
+  end
+
+  create_table "root_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sub_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_sub_categories_on_category_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false

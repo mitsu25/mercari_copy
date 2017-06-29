@@ -1,25 +1,14 @@
-.item_content.clearfix
-  .item_box
-    = image_tag "logos/copicari_logo_small.png", class: "item_box__image"
-    .item_box__body
-      %p.item_box__body__name コピカリ!!!
-      %p.item_box__body__price ¥3,000
-      %p.item_box__body__tax (税 ¥0)
-  .item_box
-    = image_tag "logos/copicari_logo_small.png", class: "item_box__image"
-    .item_box__body
-      %p.item_box__body__name コピカリ!!!
-      %p.item_box__body__price ¥3,000
-      %p.item_box__body__tax (税 ¥0)
-  .item_box
-    = image_tag "logos/copicari_logo_small.png", class: "item_box__image"
-    .item_box__body
-      %p.item_box__body__name コピカリ!!!
-      %p.item_box__body__price ¥3,000
-      %p.item_box__body__tax (税 ¥0)
-  .item_box
-    = image_tag "logos/copicari_logo_small.png", class: "item_box__image"
-    .item_box__body
-      %p.item_box__body__name コピカリ!!!
-      %p.item_box__body__price ¥3,000
-      %p.item_box__body__tax (税 ¥0)
+-@items.each do |items_group|
+  .item_content.clearfix
+    - items_group.each do |item|
+      = link_to item_path(item) do
+        .item_box
+          - if item.images[0] != nil
+            = image_tag item.images[0].image , class: "item_box__image"
+          - else
+            = image_tag "logos/copicari_logo_small.png" , class: "item_box__image", height: 165
+          .item_box__body
+            .item_box__body__name_box
+              %p.item_box__body__name_box__name  #{item.name}
+            %p.item_box__body__price ¥ #{item.price}
+            %p.item_box__body__tax   (税 ¥0)

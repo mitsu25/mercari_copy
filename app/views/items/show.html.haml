@@ -6,7 +6,7 @@
     .item__data_box.clearfix
       .item__image_box
         .item__image_box__upper
-          = image_tag "logos/copicari_logo_small.png", class: "item__image_box__upper__image"
+          = image_tag @item.images[0].image, class: "item__image_box__upper__image"
         .item__image_box__bottom
           = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
           = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
@@ -15,21 +15,35 @@
       %table.item__data_table
         %tr
           %th 出品者
-          %td コピカリ太郎
+          %td #{@item.user.name}
         %tr
           %th カテゴリー
-          %td カテゴリー名
+          %td
+            #{@item.sub_category.category.root_category.name}
+            %br/
+            > #{@item.sub_category.category.name}
+            %br/
+            > #{@item.sub_category.name}
         %tr
           %th ブランド
-          %td ブランド名
+          %td #{@item.brand}
         %tr
           %th 商品の状態
-          %td 新品
+          %td #{@item.status}
         %tr
-          %th 送料の負担
-          %td 出品者
+          %th 配送料の負担
+          %td #{@item.delivery_fee}
+        %tr
+          %th 配送の方法
+          %td #{@item.delivery_by}
+        %tr
+          %th 配送元地域
+          %td #{@prefecture.name}
+        %tr
+          %th 配送日の目安
+          %td #{@item.delivery_untill}
     .item__price__box
-      %span.item__price__price ¥ 3,000.-
+      %span.item__price__price ¥ #{@item.price}
       %span.item__price__tax   (税 ¥0)
       %span.item__price__delivery_fee 送料込み
     .item__purchase_btn 購入
