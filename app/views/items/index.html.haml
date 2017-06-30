@@ -1,5 +1,26 @@
 .container
   = render partial: "layouts/header"
+  .front_image
+    .front_image__left_box
+      %h1
+        スマホでかんたん
+        %br/
+        フリマアプリ
+      %p
+        コピカリはスマホカメラからすぐに出品できる
+        %br/
+        購入時も安心な独自システムのアプリのダミーです。
+      .front_image__left_box__stores.clearfix
+        = image_tag "app-store.svg", class: "front_image__left_box__stores__image"
+        = image_tag "google-play.svg", class: "front_image__left_box__stores__image front_image__left_box__stores__image--right"
+    = image_tag "front_image.png", class: "front_image__phone_image"
+  .consept_section
+    %h2.concept_section__text
+      コピカリは、かんたんに売り買いができて、
+      %br/
+      あんしん・あんぜんなお取引ができる
+      %br/
+      フリマアプリっぽいサイトです。
   .items_container
     %h2.section_title 新着アイテム
     %h3.category_name カテゴリー
