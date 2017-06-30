@@ -2,11 +2,10 @@ class Item < ApplicationRecord
 
 #---------- Assciations -----------------
   # belongs_to :brand
-  # belongs_to :category
-  # belongs_to :buyer
   belongs_to   :sub_category
   belongs_to   :user
   has_many     :images
+  has_one      :buyer
 
 #---------- enum -------------------------
 

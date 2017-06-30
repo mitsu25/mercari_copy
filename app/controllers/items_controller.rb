@@ -21,12 +21,6 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
-  def buy
-  end
-
-  def finish
-  end
-
   private
   def item_params
     params.require(:item).permit(:name, :price, :description, :brand, :sub_category_id, :status, :delivery_fee, :delivery_by, :delivery_from, :delivery_untill).merge(user_id:current_user.id)
