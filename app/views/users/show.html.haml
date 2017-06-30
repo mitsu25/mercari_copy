@@ -1,0 +1,13 @@
+.container
+  = render partial: "layouts/header"
+  .container__inner.clearfix
+    %ul.container__inner__menu
+      %li.container__inner__menu__item.container__inner__menu__item--grey
+        マイページメニュー
+      %li.container__inner__menu__item
+        = link_to "出品商品一覧", root_path
+      %li.container__inner__menu__item
+        = link_to "購入商品一覧", user_buyers_path(current_user.id)
+      %li.container__inner__menu__item
+        = link_to "ユーザー情報変更", edit_user_registration_path
+  = render partial: "layouts/footer"

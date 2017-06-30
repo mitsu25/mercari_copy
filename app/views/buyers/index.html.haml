@@ -1,0 +1,22 @@
+.container
+  = render partial: "layouts/header"
+  .container__inner.clearfix
+    %ul.container__inner__menu
+      %li.container__inner__menu__item.turn_grey
+        マイページメニュー
+      %li.container__inner__menu__item.turn_grey
+        = link_to "出品商品一覧", root_path
+      %li.container__inner__menu__item.container__inner__menu__item--grey.turn_grey
+        = link_to "購入商品一覧", root_path
+      %li.container__inner__menu__item.turn_grey
+        = link_to "ユーザー情報変更", edit_user_registration_path
+    .container__inner__list_box
+      .container__inner__list_box__title
+        %h2 購入した商品
+      %ul.container__inner__list_box__list
+        - @items.each do |item|
+          %li.container__inner__list_box__list__item.turn_grey.clearfix
+            = image_tag item.images[0].image, class: "container__inner__list_box__list__item__image clearfix"
+            %p.container__inner__list_box__list__item__name #{item.name}
+            %p.container__inner__list_box__list__item__name ¥#{item.price}
+  = render partial: "layouts/footer"

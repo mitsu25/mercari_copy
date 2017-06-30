@@ -1,0 +1,97 @@
+.container__inner{
+  width                 :1020px;
+  margin                : 0px auto;
+  padding               : 40px 0;
+  &__menu{
+    width               : 280px;
+    margin              : 0 auto;
+    float               : left;
+    &__item{
+      padding         : 16px;
+      background-color: white;
+      border          : solid 1px $copicari_back_ground_grey;
+      text-align      : left;
+      position        : relative;
+      transition      : all 500ms ease ;
+      &:hover{
+        background-color: $item_data_table_grey;
+      }
+      &:after{
+        font-family   : FontAwesome;
+        content       : '\f105';
+        font-size     : 20px;
+        position      : absolute;
+        top           : 20px;
+        right         : 15px;
+        color         : $my_page_menu_arrow_grey;
+        transition    : all 500ms ease;
+      }
+      &:hover:after{
+        position      : absolute;
+        right         : 10px;
+        color         : $default_font_color;
+      }
+      & a{
+        display       : block;
+      }
+      &--grey{
+        background-color  : $my_page_menu_bar_grey;
+        font-weight       : 600;
+        color             : $default_font_color;
+        &:hover{
+          background-color: $my_page_menu_bar_grey;
+        }
+      }
+    }
+  }
+  &__list_box{
+    float:right;
+    width: 700px;
+    background-color: white;
+    &__title{
+      padding:8px 24px;
+      font-size: 24px;
+      font-weight: bold;
+      border-bottom   : solid 1px $copicari_back_ground_grey;
+    }
+    &__list{
+      &__item{
+        position: relative;
+        padding:16px;
+        border-bottom   : solid 1px $copicari_back_ground_grey;
+        transition      : all 500ms ease ;
+       &:after{
+          font-family   : FontAwesome;
+          content       : '\f105';
+          font-size     : 25px;
+          position      : absolute;
+          top           : 25px;
+          right         : 15px;
+          color         : $default_font_color;
+          transition    : all 500ms ease;
+        }
+        &:hover:after{
+          position      : absolute;
+          right         : 10px;
+        }
+
+        &__image{
+          float       :left;
+          width       :48px;
+          height      :48px;
+        }
+        & p{
+          text-align  : left;
+          margin-left : 70px;
+          font-size   : 14px;
+        }
+      }
+    }
+  }
+}
+.turn_grey{
+  transition        : all 500ms ease ;
+  &:hover{
+    background-color: $item_data_table_grey;
+  }
+}

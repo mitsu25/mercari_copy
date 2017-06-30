@@ -46,7 +46,7 @@
       %span.item__price__price ¥ #{@item.price}
       %span.item__price__tax   (税 ¥0)
       %span.item__price__delivery_fee 送料込み
-    .item__purchase_btn 購入
+    =link_to "購入", new_item_buyer_path(@item), class: "item__purchase_btn"
     .item__description この商品はサンプル品です。
 
   = render partial: "layouts/footer"

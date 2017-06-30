@@ -3,10 +3,12 @@
     - items_group.each do |item|
       = link_to item_path(item) do
         .item_box
-          - if item.images[0] != nil
+          - if item.stock_status != 1
             = image_tag item.images[0].image , class: "item_box__image"
           - else
-            = image_tag "logos/copicari_logo_small.png" , class: "item_box__image", height: 165
+            .item_box--sold
+              = image_tag item.images[0].image , class: "item_box__image"
+              %span.item_box__image--sold SOLD
           .item_box__body
             .item_box__body__name_box
               %p.item_box__body__name_box__name  #{item.name}

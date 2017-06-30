@@ -22,11 +22,29 @@
     width                : calc(100% - 135px);
 
     &__text_field{
-      width              : 80%;
+      @include sell_form_default;
+      margin-left        : 10px;
+      font-size          : 14px;
+      line-height        : 16px;
+      background-color     : $header_serachform_grey;
+    }
+
+    &__btn{
+      float              : right;
+      position           : relative;
+      top                : -28px;
+      right              : 10px;
+      font-size          : 16px;
+      font-weight        : 400;
+      color              : $default_font_color;
+      border             : none;
+      background-color   : rgba(255,0,0,0);
+      cursor             : pointer;
     }
   }
+
   &__links{
-    padding-top          : 5px;
+
     &__left{
       float              : left;
     }
