@@ -48,14 +48,13 @@
     }
   }
   &__buy_btn{
+    display          : block;
     margin-top       : 16px;
     background-color : $copicari_red;
-    & p{
-      color          : white;
-      font-size      : 14px;
-      font-weight    : 600;
-      line-height    : 48px;
-    }
+    color          : white;
+    font-size      : 14px;
+    font-weight    : 600;
+    line-height    : 48px;
   }
 }
 .buy_info{

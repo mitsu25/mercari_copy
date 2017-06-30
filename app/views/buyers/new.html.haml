@@ -1,0 +1,35 @@
+.container
+  = render partial: "layouts/header_plane"
+  .main
+    .form
+      .form__inner
+        %p.form__title 購入を確定しますか？
+      .form__inner
+        .form__inner__container
+          .item_info
+            = image_tag @item.images[0].image, class: "item_info__item_image"
+            %p.item_info__item_name #{@item.name}
+            .item_info__price_info
+              %p.item_info__price_info__item_price ¥ #{@item.price}
+              %p.item_info__price_info__delivery_fee #{@item.delivery_fee}
+            .item_info__total_info.clearfix
+              %p.item_info__total_info__title 支払い金額
+              %p.item_info__total_info__price ¥ #{@item.price}
+            = link_to "購入する", item_buyers_path(@item), method: :post, class: "item_info__buy_btn"
+      .form__inner
+        .form__inner__container
+          %p.buy_info__title 配送先
+          .address_info
+            %ul.address_info__list.buy_info__list
+              %li.address_info__zip_code 〒#{current_user.zip_code.insert(3, "-")}
+              %li.address_info__address  #{current_user.prefecture}#{current_user.city}#{current_user.house_number}#{current_user.building}
+              %li.address_info__name     #{current_user.family_name} #{current_user.first_name}
+      .form__inner
+        .form__inner__container
+          .payment_info
+            %p.buy_info__title 支払い方法
+            %ul.payment_info__list.buy_info__list
+              %li.payment_info__number #{current_user.number}
+              %li.address_info__expire_date  #{current_user.expire_month}/ #{current_user.expire_year}
+              %li.address_info__company #{current_user.campany}
+  = render partial: "layouts/registration_footer"
