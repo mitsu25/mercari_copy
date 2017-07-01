@@ -59,6 +59,7 @@ gem 'pry-rails'
 #画像アップロード用
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog'
 
 # スクレイピング用
 gem 'mechanize'

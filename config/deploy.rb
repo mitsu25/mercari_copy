@@ -22,3 +22,6 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
+
+# S3 server用
+set :linked_files, %w{ config/secrets.yml }
