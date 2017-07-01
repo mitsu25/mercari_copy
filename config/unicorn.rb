@@ -1,5 +1,5 @@
 app_path = File.expand_path('../../../', __FILE__)
-
+ENV["BUNDLE_GEMFILE"] = "#{app_path}/current/Gemfile"
 worker_processes 1
 
 working_directory "#{app_path}/current"
@@ -20,7 +20,6 @@ run_once = true
 
 
 before_fork do |server, worker|
-  ENV["BUNDLE_GEMFILE"] = "#{app_path}/current/Gemfile"
   defined?(ActiveRecord::Base) &&
     ActiveRecord::Base.connection.disconnect!
 
