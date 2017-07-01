@@ -1,5 +1,7 @@
 app_path = File.expand_path('../../../', __FILE__)
-ENV["BUNDLE_GEMFILE"] = "#{app_path}/current/Gemfile"
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = File.expand_path('Gemfile', "#{app_path}/current")
+end
 worker_processes 1
 
 working_directory "#{app_path}/current"
