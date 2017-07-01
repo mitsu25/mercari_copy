@@ -20,4 +20,4 @@
 /public/uploads/
 
 #ignore secrets file
-/secrets.yml
+config/secrets.yml
