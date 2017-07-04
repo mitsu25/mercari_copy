@@ -20,6 +20,14 @@ $(function(){
     profitBox.text("¥" + profit);
   }
 
+  function hasCategorySelectOptions(){
+    return $('#category_select').length;
+  }
+
+  function ClearOptions(select_tag){
+    select_tag.children().remove();
+  }
+
   // 上位カテゴリーを選択すると下位カテゴリーのセレクトが生成されるイベント
   $('#root_category_select').change(function(e){
     e.preventDefault();
@@ -30,17 +38,17 @@ $(function(){
       data : { root_category_id: input},
     })
     .done(function(data){
-      if($('#category_select').length){
-        $('#category_select').children().remove();
-        $('#item_sub_category_id').children().remove();
-        $('#item_sub_category_id').append(`<option value="">---</option>`);
+      if(hasCategorySelectOptions()){
+        ClearOptions($('#category_select'));
+        ClearOptions($('#item_sub_category_id'));
+        $('#item_sub_category_id').append('<option value="">---</option>');
       } else {
-        var select = `<select class="sell_form__input sell_form__input--select" id="category_select" name="category[category_id]"></select>`;
+        var select = '<select class="sell_form__input sell_form__input--select" id="category_select" name="category[category_id]"></select>';
         $('#category_select_box').append(select)
       }
-      $('#category_select').append(`<option value="">---</option>`);
+      $('#category_select').append('<option value="">---</option>');
       $.each(data, function(i, category){
-        $('#category_select').append(`<option value="${ category.id }">${ category.name }</option>`);
+        $('#category_select').append('<option value="' + category.id + '">'+ category.name + '</option>');
       });
       // 追加イベント
       $('#category_select').change(function(e){
@@ -55,12 +63,12 @@ $(function(){
           if($('#item_sub_category_id').length){
             $('#item_sub_category_id').children().remove();
           } else {
-            var select = `<select class="sell_form__input sell_form__input--select" name="item[sub_category_id]" id="item_sub_category_id" name="category[category_id]"></select>`;
+            var select = '<select class="sell_form__input sell_form__input--select" name="item[sub_category_id]" id="item_sub_category_id" name="category[category_id]"></select>';
             $('#category_select_box').append(select)
           }
-          $('#item_sub_category_id').append(`<option value="">---</option>`);
+          $('#item_sub_category_id').append('<option value="">---</option>');
           $.each(data, function(i, sub_category){
-            $('#item_sub_category_id').append(`<option value="${ sub_category.id }">${ sub_category.name }</option>`);
+            $('#item_sub_category_id').append('<option value="' + sub_category.id + '">' + sub_category.name + '</option>');
           });
         })
         .fail(function(){
