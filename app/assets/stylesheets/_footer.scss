@@ -3,7 +3,10 @@
   width            : 100%;
 
   &__logo{
-    width          : 200px;
+    height         : 75px;
+    width          : 160px;
+    position       : relative;
+    right          : 10px;
   }
   &__copy_rights{
     color          : white;
