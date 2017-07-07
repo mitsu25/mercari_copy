@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   end
   resources  :sub_categories,    only: :index
   resources  :categories,        only: :index
-  resources  :follower,          only: [:create, :destroy]
+  resources  :followers,         only: [:index, :create, :destroy]
 end
