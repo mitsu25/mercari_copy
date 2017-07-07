@@ -28,7 +28,7 @@ $(function(){
     var targetId   = $followBtn.attr('data-followed-user-id');
     $.ajax({
       type : 'POST',
-      url  : '/follower',
+      url  : '/followers',
       data : { user_id: userId, followed_user_id: targetId }
     })
     .done(function(data){
@@ -46,7 +46,7 @@ $(function(){
     var followerId = $stopBtn.attr('data-follower-id');
     var userId     = $stopBtn.attr('data-user-id');
     var targetId   = $stopBtn.attr('data-followed-user-id');
-    var url        = '/follower/' + followerId;
+    var url        = '/followers/' + followerId;
     $.ajax({
       type : 'DELETE',
       url  : url,
