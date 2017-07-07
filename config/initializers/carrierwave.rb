@@ -17,6 +17,6 @@ CarrierWave.configure do |config|
         config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/copicari'
     when 'production'
         config.fog_directory  = 'copicari'
-        config.asset_host = 'https://s3.amazonaws.com/copicari'
+        config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/copicari'
     end
 end

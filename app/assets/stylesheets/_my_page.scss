@@ -45,19 +45,19 @@
     }
   }
   &__list_box{
-    float:right;
-    width: 700px;
-    background-color: white;
+    float               : right;
+    width               : 700px;
+    background-color    : white;
     &__title{
-      padding:8px 24px;
-      font-size: 24px;
-      font-weight: bold;
-      border-bottom   : solid 1px $copicari_back_ground_grey;
+      padding           :8px 24px;
+      font-size         : 24px;
+      font-weight       : bold;
+      border-bottom     : solid 1px $copicari_back_ground_grey;
     }
     &__list{
       &__item{
-        position: relative;
-        padding:16px;
+        position        : relative;
+        padding         :16px;
         border-bottom   : solid 1px $copicari_back_ground_grey;
         transition      : all 500ms ease ;
        &:after{
@@ -93,5 +93,65 @@
   transition        : all 500ms ease ;
   &:hover{
     background-color: $item_data_table_grey;
+  }
+}
+.container__right_inner{
+  &__user_box{
+    background-image     : image-url("my_page_user_box.jpeg");
+    &__name_box{
+        padding-top          : 50px;
+      &__name{
+        width            : 150px;
+        height           : 150px;
+        margin           : 0px auto;
+        border-radius    : 50%;
+        background-color : white;
+      }
+      & h2{
+        position         : relative;
+        top              : 60px;
+      }
+    }
+    &__follow_box{
+      width              : 150px;
+      margin             : 20px auto;
+    }
+  }
+  &__item_box{
+    background-color: $copicari_back_ground_grey;
+    width: 700px;
+    &__title{
+      & h2{
+        float: left;
+        margin-top: 24px;
+        margin-bottom: 8px;
+        font-size: 24px;
+        font-weight: bold;
+        color: $default_font_color;
+      }
+    }
+    &__content{
+      background-color: $copicari_back_ground_grey;
+      width:705px;
+      margin:0px;
+      float: left;
+      &__item{
+        width: 217px;
+      }
+    }
+  }
+}
+.follow_btn{
+  padding            : 5px 0px;
+  background-color   : white;
+  border             : solid 1px $copicari_blue;
+  border-radius      : 50px;
+  color              : $copicari_blue;
+  font-size          : 16px;
+  font-weight        : 600;
+  cursor             : pointer;
+  &--stop{
+    color              : white;
+    background-color   : $copicari_blue;
   }
 }
