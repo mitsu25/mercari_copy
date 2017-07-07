@@ -10,35 +10,38 @@
         %li.container__inner__menu__item
           = link_to "購入商品一覧", user_buyers_path(current_user.id)
         %li.container__inner__menu__item
+          = link_to "フォロー出品者の商品一覧", followers_path
+        %li.container__inner__menu__item
           = link_to "ユーザー情報変更", edit_user_registration_path
-    .container__inner__list_box.container__right_inner
-      .container__inner__list_box__title.container__right_inner__user_box
-        .container__right_inner__user_box__name_box
-          .container__right_inner__user_box__name_box__name
-            %h2 #{@user.name} さん
-        .container__right_inner__user_box__follow_box
-          - unless @follower
-            .follow_btn#follow{ data: {user_id: current_user.id, followed_user_id: @user.id} }フォローする
-          - else
-            .follow_btn.follow_btn--stop#stop_follow{ data: {follower_id: @follower.id, user_id: current_user.id, followed_user_id: @user.id } } フォロー中
-      .container__inner__list_box__item.container__right_inner__item_box
-        .container__right_inner__item_box__title.clearfix
-          %h2 この出品者の商品
-        .container__right_inner__item_box__content.clearfix
-          -@items.each do |items_group|
-            .container__right_inner__list_box__item_content.clearfix
-              - items_group.each do |item|
-                = link_to item_path(item) do
-                  .item_box
-                    - if item.stock_status != 1
-                      = image_tag item.images[0].image , class: "item_box__image"
-                    - else
-                      .item_box--sold
+    - if current_user.id != @user.id
+      .container__inner__list_box.container__right_inner
+        .container__inner__list_box__title.container__right_inner__user_box
+          .container__right_inner__user_box__name_box
+            .container__right_inner__user_box__name_box__name
+              %h2 #{@user.name} さん
+          .container__right_inner__user_box__follow_box
+            - unless @follower
+              .follow_btn#follow{ data: {user_id: current_user.id, followed_user_id: @user.id} }フォローする
+            - else
+              .follow_btn.follow_btn--stop#stop_follow{ data: {follower_id: @follower.id, user_id: current_user.id, followed_user_id: @user.id } } フォロー中
+        .container__inner__list_box__item.container__right_inner__item_box
+          .container__right_inner__item_box__title.clearfix
+            %h2 この出品者の商品
+          .container__right_inner__item_box__content.clearfix
+            -@items.each do |items_group|
+              .container__right_inner__list_box__item_content.clearfix
+                - items_group.each do |item|
+                  = link_to item_path(item) do
+                    .item_box
+                      - if item.stock_status != 1
                         = image_tag item.images[0].image , class: "item_box__image"
-                        %span.item_box__image--sold SOLD
-                    .item_box__body
-                      .item_box__body__name_box
-                        %p.item_box__body__name_box__name  #{item.name}
-                      %p.item_box__body__price ¥ #{item.price}
-                      %p.item_box__body__tax   (税 ¥0)
+                      - else
+                        .item_box--sold
+                          = image_tag item.images[0].image , class: "item_box__image"
+                          %span.item_box__image--sold SOLD
+                      .item_box__body
+                        .item_box__body__name_box
+                          %p.item_box__body__name_box__name  #{item.name}
+                        %p.item_box__body__price ¥ #{item.price}
+                        %p.item_box__body__tax   (税 ¥0)
   = render partial: "layouts/footer"
