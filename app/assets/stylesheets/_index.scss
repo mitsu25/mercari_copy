@@ -131,18 +131,22 @@ a {
     padding       :10px;
     &__name_box{
       height      : 48px;
+      max-height  : 48px;
+      overflow    : hidden;
       &:after{ /*一覧画面で商品名の末尾をぼやかす設定*/
-        display    : block;
-        content    : "";
-        bottom     : 0;
-        right      : 0;
-        width      : 50%;
-        height     : 1.5em;
-        background : linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+        display: block;
+        position: absolute;
+        content: "";
+        bottom: 45px;
+        right: 10px;
+        width: 50%;
+        height: 1.5em;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 72%);
       }
       &__name{
         font-size   : 16px;
         font-weight : 700;
+        max-height  : 48px;
       }
     }
     &__price{
