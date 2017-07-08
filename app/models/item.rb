@@ -13,5 +13,6 @@ class Item < ApplicationRecord
   enum delivery_fee: { "送料込み（出品者負担）": 1, "着払い": 2 }
   enum delivery_by: { "未定": 1, "らくらくコピカリ便": 2, "ゆうメール": 3, "レターパック": 4,"普通郵便（定型、定形外）": 5, "クロネコヤマト":  6, "ゆうパック": 7, "はこBOON": 7, "ポスパケット・ゆうパケット":  7}
   enum delivery_untill: { "1〜2日で発送": 1, "2〜3日で発送": 2, "4〜7日で発送": 3}
+  enum stock_status: {"sold": 1}
 
 end
