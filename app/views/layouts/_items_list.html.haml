@@ -3,7 +3,7 @@
     - items_group.each do |item|
       = link_to item_path(item) do
         .item_box
-          - if item.stock_status != 1
+          - if item.stock_status != "sold"
             = image_tag item.images[0].image , class: "item_box__image"
           - else
             .item_box--sold

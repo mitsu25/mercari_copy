@@ -1,24 +1,46 @@
-# README
+# コピカリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
 
-Things you may want to cover:
+プログラミング学習のために、メルカリを目コピしたWEBアプリです。
+学習目的ですので実際に売買はできません。
 
-* Ruby version
+## 詳細
 
-* System dependencies
+株式会社divによるプログラミング学習コース「TECH::EXPERT」の一環として、
+学習目的で、製作期間は３週間で既存サービスの目コピを行いました。
+本アプリはメルカリを目コピしたものです。
 
-* Configuration
+### 主にバックエンド開発の学習を目的としているため、以下のような制約があります。
 
-* Database creation
++ サポートするブラウザはChromeです。
++ リンクがテキストの内容と一致しないもの存在しないものがあります。
+  （利用規約などがルートパスになっていたります。）
++ ユーザー機能は簡易的なものです。セキュリティは担保されません。
 
-* Database initialization
+## 基本機能
 
-* How to run the test suite
++ ユーザ登録
++ 商品の出品：出品するとマイページの出品リストに追加されます。
++ 商品の購入：購入するとマイページの購入リストに追加されます。
 
-* Services (job queues, cache servers, search engines, etc.)
+## 追加オリジナル機能
 
-* Deployment instructions
++ 出品者のフォロー機能：
+  お気に入りの出品者をフォローでき、同じ出品者から購入がしやすくなります。
+  フォローしている出品者の商品一覧を表示できます。
 
-* ...
+## 開発環境
+
+Ruby  : v2.3.1
+Rails : 5.0.3
+Haml
+SCSS
+JavaScript
+jQuery
+
+サーバ             : AWS EC2
+画像ストレージ      : AWS S3
+データベース        : MySQL
+WEBサーバ          : Nginx
+アプリケションサーバ : Unicorn

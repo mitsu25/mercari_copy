@@ -1,23 +1,30 @@
 $(function(){
 
+// ---------   変数    -------------------------------
+  // -------   フォローボタンの祖先要素    -------------
   var $followBtnBox = $('.container__right_inner__user_box__follow_box')
 
 // ---------  メソッド  -------------------------------
   function clearbtnBox(){
     $followBtnBox.empty();
   }
-  // フォローした後にフォローをやめるボタンを追加するメソッド
+  // フォロー後にフォロー解除ボタンを追加するメソッド
   function changeToStopFollowBtn(follower){
     clearbtnBox();
     var btn = '<div class="follow_btn follow_btn--stop" data-followed-user-id="'+ follower.followed_user_id + '" data-user-id="' + follower.user_id + '" data-follower-id = "' + follower.id +'" id="stop_follow">フォロー中</div>';
     $followBtnBox.append(btn);
   }
 
-  // フォローやめた後にフォローするボタンを追加するメソッド
+  // フォロー解除後にフォローボタンを追加するメソッド
   function changeToFollowBtn(follower){
     clearbtnBox();
     var btn = '<div class="follow_btn" data-followed-user-id="'+ follower.followed_user_id + '" data-user-id="' + follower.user_id + '" id="follow">フォローする</div>';
     $followBtnBox.append(btn);
+  }
+
+  function changeBtnTextTo(text){
+    var $stopBtn = $('#stop_follow')
+    $stopBtn.text(text);
   }
 
 // -------------  イベント  -------------------------------
@@ -60,5 +67,15 @@ $(function(){
       alert('フォロー解除に失敗しました');
     });
   });
+
+  //------   フォロー解除ボタンにカーソルを乗せるとテキストを「解除する」に変更する   -----
+  $followBtnBox.on('mouseover', '#stop_follow', function(){
+    changeBtnTextTo('解除する');
+  });
+
+  $followBtnBox.on('mouseout', '#stop_follow', function(){
+    changeBtnTextTo('フォロー中');
+  });
+
 });
 

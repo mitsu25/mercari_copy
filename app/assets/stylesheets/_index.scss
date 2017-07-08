@@ -4,23 +4,7 @@ a {
 }
 
 .front_image{
-  background-image: image-url("front.png");
-  background-size : cover;
-  height          : 390px;
-  position        : relative;
-  overflow        : hidden;
-  z-index         : 0;
-  &:before{
-  content         : '';
-  background      : inherit;    /*.bgImageで設定した背景画像を継承*/
-  filter          : blur(1.5px);/*ぼやけ量の設定*/
-  position        : absolute;
-  top             : -5px;
-  left            : -5px;
-  right           : -5px;
-  bottom          : -5px;
-  z-index         : -1;
-  }
+  @include back_ground_image_with_blur("front.png", 390px);
 
   &__left_box{
     position      : absolute;
@@ -59,20 +43,20 @@ a {
   }
 
   &__phone_image{
-    position : absolute;
-    top      : -40px;
-    right    : 120px;
-    height   : 500px;
-    transform:rotate(10deg)
+    position  : absolute;
+    top       : -40px;
+    right     : 120px;
+    height    : 500px;
+    transform :rotate(10deg)
   }
 }
 .consept_section{
-  padding         :40px 20px;
-  background-color: white;
+  padding          :40px 20px;
+  background-color : white;
   & h2{
-    font-size  : 26px;
-    font-weight: bold;
-    line-height: 1.2;
+    font-size   : 26px;
+    font-weight : bold;
+    line-height : 1.2;
   }
 }
 
@@ -133,14 +117,14 @@ a {
       height      : 48px;
       max-height  : 48px;
       overflow    : hidden;
-      &:after{ /*一覧画面で商品名の末尾をぼやかす設定*/
-        display: block;
-        position: absolute;
-        content: "";
-        bottom: 45px;
-        right: 10px;
-        width: 50%;
-        height: 1.5em;
+      &:after{ /*一覧画面で商品名の末尾をぼかす設定*/
+        display   : block;
+        position  : absolute;
+        content   : "";
+        bottom    : 45px;
+        right     : 10px;
+        width     : 50%;
+        height    : 1.5em;
         background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 72%);
       }
       &__name{
@@ -150,11 +134,11 @@ a {
       }
     }
     &__price{
-      font-size   : 20px;
-      font-weight : 600;
+      font-size     : 20px;
+      font-weight   : 600;
     }
     &__tax{
-      font-size   : 10px;
+      font-size     : 10px;
     }
   }
 }

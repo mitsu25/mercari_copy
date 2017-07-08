@@ -15,7 +15,7 @@ class BuyersController < ApplicationController
 
   def create
     Buyer.create(buyer_params)
-    item_sold(@item)
+    change_item_stock_sold(@item)
   end
 
   private
@@ -27,7 +27,7 @@ class BuyersController < ApplicationController
     @item  = Item.find(buyer_params[:item_id])
   end
 
-  def item_sold(item)
-    item.stock_status = 1
+  def change_item_stock_sold(item)
+    item.stock_status = "sold"
   end
 end

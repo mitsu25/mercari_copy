@@ -27,3 +27,23 @@
 @mixin form_inner_border_bottom{
   border-bottom: 1px solid $registration_background_color;
 }
+
+@mixin back_ground_image_with_blur($url,$height){
+  background-image: image-url($url);
+  background-size : cover;
+  height          : $height;
+  position        : relative;
+  overflow        : hidden;
+  z-index         : 0;
+  &:before{
+  content         : '';
+  background      : inherit;    /*.bgImageで設定した背景画像を継承*/
+  filter          : blur(1.5px);/*ぼやけ量の設定*/
+  position        : absolute;
+  top             : -5px;
+  left            : -5px;
+  right           : -5px;
+  bottom          : -5px;
+  z-index         : -1;
+  }
+}
