@@ -1,12 +1,15 @@
 class BuyersController < ApplicationController
-  before_action :set_item, only: [:new, :create]
+
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :set_item,           only: [:new, :create]
 
   def index
     buyers = Buyer.where(user_id:buyer_params[:user_id])
-    @items = []
+    item_list = []
     buyers.each do |buyer|
-      @items << Item.find(buyer.item_id)
+      item_list << buyer.item
     end
+    @items = item_list.each_slice(3).to_a
   end
 
   def new

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources  :users,             only: [:show] do
     resources :buyers,           only: [:index]
+    collection do
+      get 'sell_list'
+    end
   end
   resources  :items,             only: [:index, :show, :new, :create] do
     resources :buyers,           only: [:new, :create]

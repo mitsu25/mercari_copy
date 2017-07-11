@@ -1,8 +1,13 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: :new
+
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @items = Item.all.includes(:images).each_slice(4).to_a
+    if user_signed_in?
+      @items = Item.where.not(user_id:current_user.id).includes(:images).each_slice(4).to_a
+    else
+      @items = Item.all.includes(:images).each_slice(4).to_a
+    end
   end
 
   def show
