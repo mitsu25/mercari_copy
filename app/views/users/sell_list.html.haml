@@ -4,10 +4,10 @@
     %ul.container__inner__menu
       %li.container__inner__menu__item.turn_grey
         = link_to "マイページメニュー", user_path(current_user)
-      %li.container__inner__menu__item.turn_grey
-        = link_to "出品商品一覧", sell_list_users_path
       %li.container__inner__menu__item.container__inner__menu__item--grey
-        = link_to "購入商品一覧", root_path
+        = link_to "出品商品一覧", sell_list_users_path
+      %li.container__inner__menu__item.turn_grey
+        = link_to "購入商品一覧",  user_buyers_path(current_user.id)
       %li.container__inner__menu__item.turn_grey
         = link_to "フォロー出品者の商品一覧", followers_path
       %li.container__inner__menu__item.turn_grey
@@ -15,7 +15,7 @@
     .container__inner__list_box.container__right_inner
       .container__right_inner__item_box
         .container__right_inner__item_box__title.clearfix
-          %h2 購入商品一覧
+          %h2 出品商品一覧
         .container__right_inner__item_box__content.clearfix
           = render partial: "layouts/small_item_list"
   = render partial: "layouts/footer"
