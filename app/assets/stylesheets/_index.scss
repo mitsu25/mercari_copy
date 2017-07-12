@@ -6,6 +6,10 @@ a {
 .front_image{
   @include back_ground_image_with_blur("front.png", 390px);
 
+  &--konami{
+    @include back_ground_image_with_blur("gradius.png", 390px);
+  }
+
   &__left_box{
     position      : absolute;
     top           : 15%;
