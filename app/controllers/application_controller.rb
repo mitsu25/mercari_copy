@@ -5,9 +5,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def configure_permitted_parameters
-   devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
-   devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-   devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+   added_attrs = [:name, :family_name, :first_name, :family_name_kana, :first_name_kana, :zip_code, :prefecture, :city, :house_number, :buildng, :telephone, :campany, :number, :expire_year, :expire_month]
+   devise_parameter_sanitizer.permit(:sign_in, keys: added_attrs)
+   devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
+   devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
   end
 
    def set_years
