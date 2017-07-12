@@ -4,19 +4,19 @@ class ItemsController < ApplicationController
 
   def index
     if user_signed_in?
-      @items = Item.where.not(user_id:current_user.id).includes(:images).each_slice(4).to_a
+      @items = set_all_items_without_my_items
     else
-      @items = Item.all.includes(:images).each_slice(4).to_a
+      @items = set_all_items
     end
   end
 
   def show
-    @item = Item.find(params[:id])
+    @item       = Item.find(params[:id])
     @prefecture = JpPrefecture::Prefecture.find code: @item.delivery_from
   end
 
   def new
-    @item = Item.new
+    @item            = Item.new
     @root_categories = RootCategory.all
   end
 
@@ -26,6 +26,12 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+
+  def search
+    @keyword = search_params[:keyword]
+    @items   = Item.where('name LIKE(?)', "%#{search_params[:keyword]}%").each_slice(4).to_a
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :price, :description, :brand, :sub_category_id, :status, :delivery_fee, :delivery_by, :delivery_from, :delivery_untill).merge(user_id:current_user.id)
@@ -33,5 +39,17 @@ class ItemsController < ApplicationController
 
   def image_params(item)
     params.require(:item).permit(:image).merge(item_id:item.id)
+  end
+
+  def search_params
+    params.permit(:keyword)
+  end
+
+  def set_all_items
+    Item.all.includes(:images).each_slice(4).to_a
+  end
+
+  def set_all_items_without_my_items
+    Item.where.not(user_id:current_user.id).includes(:images).each_slice(4).to_a
   end
 end

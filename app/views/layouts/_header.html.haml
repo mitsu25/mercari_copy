@@ -3,9 +3,9 @@
     .header__inner__logo_container
       =link_to root_path class: "logo" do
         =image_tag "logos/copicari.png", class: "header__inner__logo"
-    = form_tag "root_path", class: "header__inner__form" do
-      %input.header__inner__form__text_field{name:"keyword", placeholder:"検索機能はまだありません", type:"text"}
-      %button.header__inner__form__btn
+    = form_tag "/items/search", method: "GET", class: "header__inner__form" do
+      %input.header__inner__form__text_field{name:"keyword", placeholder:"商品検索", type:"text"}
+      %button.header__inner__form__btn{type:"submit"}
         %i.fa.fa-search
     .header__inner__links.clearfix
       %ul.header__inner__links__left

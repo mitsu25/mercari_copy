@@ -1,0 +1,7 @@
+.container
+  = render partial: "layouts/header"
+  .items_container
+    %h2.section_title 検索結果
+    %h3.category_name 『#{@keyword}』を含む商品一覧
+    = render partial: "layouts/items_list"
+  = render partial: "layouts/footer"
