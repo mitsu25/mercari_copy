@@ -31,6 +31,6 @@ class BuyersController < ApplicationController
   end
 
   def change_item_stock_sold(item)
-    item.stock_status = "sold"
+    item.update(stock_status:"sold")
   end
 end
