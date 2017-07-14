@@ -2,7 +2,7 @@
   background-color: white;
 }
 .header__inner{
-  width          : 1020px;
+  width          : 80%;
   margin         : 0px auto;
   padding-top    : 8px;
   padding-bottom : 8px;
@@ -23,17 +23,19 @@
 
     &__text_field{
       @include sell_form_default;
+      width              : 90%;
+      display            : inline-block;
       margin-left        : 10px;
       font-size          : 14px;
       line-height        : 16px;
-      background-color     : $header_serachform_grey;
+      background-color    : $header_serachform_grey;
     }
 
     &__btn{
       float              : right;
       position           : relative;
-      top                : -28px;
-      right              : 10px;
+      top                : 15px;
+      right              : 50px;
       font-size          : 16px;
       font-weight        : 400;
       color              : $default_font_color;
@@ -44,7 +46,8 @@
   }
 
   &__links{
-
+    margin-right: 37px;
+    margin-top  :  8px;
     &__left{
       float              : left;
     }
@@ -54,6 +57,7 @@
     &__item{
       float              : left;
       margin-right       : 10px;
+      margin-top         :  9px;
       font-size          : 14px;
       &--red{
         padding          : 0px 16px;
@@ -93,17 +97,5 @@
         }
       }
     }
-  }
-}
-
-// header_plane用CSS
-.header__logo{
-  height     : 60px;
-  margin     : 30px 0px;
-  transition : all 500ms 0s ease;
-  &:hover{
-  opacity   :  0.7;
-  filter    :  alpha( opacity=70);
-  -ms-filter: “alpha( opacity=70 )”;
   }
 }

@@ -1,0 +1,11 @@
+%ul.container__inner__menu
+  %li.container__inner__menu__item.container__inner__menu__item--grey
+    マイページメニュー
+  %li.container__inner__menu__item
+    = link_to "出品商品一覧", sell_list_my_pages_path
+  %li.container__inner__menu__item
+    = link_to "購入商品一覧", buy_list_my_pages_path
+  %li.container__inner__menu__item
+    = link_to "フォロー出品者の商品一覧", followers_path
+  %li.container__inner__menu__item
+    = link_to "ユーザー情報変更", edit_user_registration_path
