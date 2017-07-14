@@ -1,7 +1,7 @@
 %header.general_header
   .header__inner.clearfix
     .header__inner__logo_container
-      =link_to root_path class: "logo" do
+      =link_to root_path, class: "logo" do
         =image_tag "logos/copicari.png", class: "header__inner__logo"
     = form_tag "/items/search", method: "GET", class: "header__inner__form" do
       %input.header__inner__form__text_field{name:"keyword", placeholder:"商品検索", type:"text"}
@@ -15,7 +15,7 @@
             = link_to "フォロー出品者の商品", followers_path
       %ul.header__inner__links__right
         - if user_signed_in?
-          = link_to "マイページ", user_path(current_user.id), class: "header__inner__links__item--blue"
+          = link_to "マイページ", my_pages_path, class: "header__inner__links__item--blue"
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__inner__links__item--red"
         -else
           = link_to "ログイン", new_user_session_path, class: "header__inner__links__item--red"

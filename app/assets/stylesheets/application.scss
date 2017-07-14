@@ -1,24 +1,24 @@
 // リセットcss
-@import "./reset";
+@import "reset";
 
 // configファイル
-@import "./config/variables";
+@import "config/variables";
 
 // mixin
-@import "./mixin/mixin";
+@import "mixin/mixin";
 
 //font_awesome
 @import "font-awesome";
 
 // テンプレート用
-@import "./header";
-@import "./footer";
+@import "module/*";
+@import "footer";
 
 // 各種アクション用
-@import "./registration";
-@import "./login";
-@import "./index";
-@import "./show";
-@import "./buy";
-@import "./sell";
-@import "./my_page"; //users#show
+@import "registration";
+@import "login";
+@import "index";
+@import "show";
+@import "buy";
+@import "sell";
+@import "my_page"; //users#show
