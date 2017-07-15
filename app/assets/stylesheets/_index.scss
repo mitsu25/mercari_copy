@@ -138,11 +138,22 @@ a {
       }
     }
     &__price{
+      display       : inline-block;
       font-size     : 20px;
       font-weight   : 600;
     }
     &__tax{
       font-size     : 10px;
+    }
+    &__like_box{
+      float         : right;
+      line-height   : 30px;
+      &--liked{
+        color       : $copicari_red;
+      }
+      & span{
+        margin-left: 5px;
+      }
     }
   }
 }

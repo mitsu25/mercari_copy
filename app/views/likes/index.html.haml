@@ -1,0 +1,7 @@
+.container
+  = render partial: "layouts/header"
+  .container__inner.clearfix
+    =render partial: "layouts/my_page_menu_bar"
+    .container__inner__list_box.container__right_inner
+      = render partial: "layouts/small_item_list", locals: {title: "いいね！商品一覧"}
+  = render partial: "layouts/footer"
