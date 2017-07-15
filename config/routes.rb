@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources  :users,             only: [:show] do
-    resources :buyers,           only: [:index]
+  resources  :users,             only: :show do
+    resources :buyers,           only: :index
   end
 
   resources  :items,             only: [:index, :show, :new, :create] do
@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     resources :buyers,           only: [:new, :create]
   end
 
-  resources  :sub_categories,    only: :index
-  resources  :categories,        only: :index
-  resources  :followers,         only: [:index, :create, :destroy]
+  resources :sub_categories,     only: :index
+  resources :categories,         only: :index
+  resources :followers,          only: [:index, :create, :destroy]
+  resources :likes,              only: [:index, :create, :destroy]
+
 end

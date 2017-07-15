@@ -47,7 +47,19 @@
       %span.item__price__price ¥ #{@item.price}
       %span.item__price__tax   (税 ¥0)
       %span.item__price__delivery_fee 送料込み
-    =link_to "購入", new_item_buyer_path(@item), class: "item__purchase_btn"
+    = link_to "購入", new_item_buyer_path(@item), class: "item__purchase_btn"
     .item__description この商品はサンプル品です。
-
+    .item__like_box
+      - if user_signed_in? && has_user_liked?(@item)
+        .item__like_box__btn#stop_like_btn{ data: {id: @like.id, user_id: current_user.id, item_id: @item.id} }
+          %span.fa.fa-heart#like_btn_icon<>
+          %i<>
+            いいね
+          %span#item__like_box__btn_likes_number #{get_likes_number(@item)}
+      - else
+        .item__like_box__btn#like_btn{ data: {user_id: current_user.id, item_id: @item.id} }
+          %span.fa.fa-heart-o#like_btn_icon<>
+          %i<>
+            いいね
+          %span#item__like_box__btn_likes_number #{get_likes_number(@item)}
   = render partial: "layouts/footer"

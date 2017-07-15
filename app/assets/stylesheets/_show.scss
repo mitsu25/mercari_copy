@@ -71,9 +71,38 @@
   }
 
   &__description{
-    margin-top  : 32px;
-    text-align  : left;
-    font-size   : 18px;
-    line-height : 27px;
+    margin-top       : 32px;
+    text-align       : left;
+    font-size        : 18px;
+    line-height      : 27px;
   }
+  &__like_box{
+    display          : flex;
+    margin-top       : 16px;
+    &__btn{
+      border-radius  : 40px;
+      padding        : 8px 16px;
+      font-size      : 14px;
+      & i{
+        margin-top   : 1px;
+        margin-left  : 8px;
+      }
+    }
+  }
+}
+
+#like_btn{
+  background-color : $copicari_back_ground_grey;
+  border           : 1px solid $copicari_back_ground_grey;
+  color            : #333333;
+}
+
+#stop_like_btn{
+  background-color : white;
+  border           : 1px solid $copicari_red;
+  color            : $copicari_red;
+}
+
+#item__like_box__btn_likes_number{
+  padding-left    : 10px;
 }

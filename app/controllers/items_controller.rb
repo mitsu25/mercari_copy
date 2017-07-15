@@ -11,8 +11,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item       = Item.find(params[:id])
-    @prefecture = JpPrefecture::Prefecture.find code: @item.delivery_from
+    @item         = Item.find(params[:id])
+    @like         = set_like
+    @prefecture   = JpPrefecture::Prefecture.find code: @item.delivery_from
   end
 
   def new
@@ -53,4 +54,9 @@ class ItemsController < ApplicationController
   def set_all_items_without_my_items
     Item.where.not(user_id:current_user.id).includes(:images).each_slice(4).to_a
   end
+
+  def set_like
+    Like.where(user_id:current_user.id).find_by(item_id:params[:id])
+  end
+
 end

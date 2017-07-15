@@ -1,0 +1,9 @@
+- if does_item_have_likes?(item)
+  -if has_user_liked?(item)
+    .item_box__body__like_box.item_box__body__like_box--liked
+      %span.fa.fa-heart<>
+      %span  #{get_likes_number(item)}
+  - else
+    .item_box__body__like_box
+      %span.fa.fa-heart-o<>
+      %span  #{get_likes_number(item)}
