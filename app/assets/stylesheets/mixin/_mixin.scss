@@ -47,3 +47,12 @@
   z-index         : -1;
   }
 }
+
+@mixin back_ground_image($url1,$url2,$height){
+  background-image: image-url($url1),image-url($url2);
+  background-size : cover;
+  height          : $height;
+  position        : relative;
+  overflow        : hidden;
+  z-index         : 0;
+}

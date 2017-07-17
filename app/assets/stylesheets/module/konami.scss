@@ -1,0 +1,13 @@
+#gradius{
+  display     : none;
+  position    : absolute;
+  top         : 50%;
+  margin-left : 90px;
+  animation   : gradiusWipeIn 4s 1 linear;
+  // animation   : blink 0.1s 20 linear; 点滅演出
+}
+
+.front_image--konami{
+    @include back_ground_image("gradius_bg_3.png","gradius_bg.jpg", 445px);
+    animation : moveBg 15s infinite linear;
+  }
