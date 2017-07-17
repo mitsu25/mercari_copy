@@ -7,12 +7,14 @@
 // mixin
 @import "mixin/mixin";
 
+// keyframe
+@import "keyframe/keyframe";
+
 //font_awesome
 @import "font-awesome";
 
 // テンプレート用
 @import "module/*";
-@import "footer";
 
 // 各種アクション用
 @import "registration";

@@ -1,0 +1,21 @@
+@keyframes moveBg{
+  0%    { background-position: 100vw  0px; }
+  100%  { background-position:   0px  0px; }
+}
+
+@keyframes gradiusWipeIn{
+  0%    {margin-left: -10%;}
+  35%   {margin-left:  50%;}
+  100%  {margin-left:  90px;}
+}
+
+@keyframes blink{
+  0%    { opacity: 0;}
+  100%  { opacity: 1; }
+}
+
+
+@keyframes laserMove{
+  0%    { }
+  100%  { left: 100vw; }
+}
