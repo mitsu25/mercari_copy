@@ -19,8 +19,12 @@
   &__image_box{
     width       : 50%;
     float       : left;
-    &__upper__image{
-      width     : 100%;
+    &__upper{
+      position  : relative;
+      overflow  : hidden;
+      &__image{
+        width     : 100%;
+      }
     }
     &__bottom__image{
       width     : 23%;
@@ -68,6 +72,9 @@
     background-color : $copicari_red;
     font-size        : 24px;
     color            : white;
+    &--sold{
+      background-color : $item_btn_sold_grey;
+    }
   }
 
   &__description{

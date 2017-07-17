@@ -2,11 +2,13 @@
   = render partial: "layouts/header"
 
   .item_container
-    %h2.item__title アイテム名 Copicari!!!
+    %h2.item__title #{@item.name}
     .item__data_box.clearfix
       .item__image_box
         .item__image_box__upper
           = image_tag @item.images[0].image, class: "item__image_box__upper__image"
+          - if @item.stock_status == "sold"
+            %span.item_box__image--sold SOLD
         .item__image_box__bottom
           = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
           = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
@@ -47,7 +49,10 @@
       %span.item__price__price ¥ #{@item.price}
       %span.item__price__tax   (税 ¥0)
       %span.item__price__delivery_fee 送料込み
-    = link_to "購入", new_item_buyer_path(@item), class: "item__purchase_btn"
+    - if @item.stock_status != "sold"
+      = link_to "購入", new_item_buyer_path(@item), class: "item__purchase_btn"
+    - else
+      .item__purchase_btn.item__purchase_btn--sold 売り切れました
     .item__description この商品はサンプル品です。
     .item__like_box
       - if user_signed_in? && has_user_liked?(@item)
