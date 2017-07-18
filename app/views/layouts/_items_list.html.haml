@@ -12,7 +12,7 @@
           .item_box__body
             .item_box__body__name_box
               %p.item_box__body__name_box__name  #{item.name}
-            %p.item_box__body__price ¥ #{item.price}
+            %p.item_box__body__price ¥ #{item.price.to_s(:delimited)}
             = render partial: "layouts/like_box_for_list", locals: {item: item}
             %p.item_box__body__tax   (税 ¥0)
 
