@@ -46,7 +46,7 @@
           %th 配送日の目安
           %td #{@item.delivery_untill}
     .item__price__box
-      %span.item__price__price ¥ #{@item.price}
+      %span.item__price__price ¥ #{@item.price.to_s(:delimited)}
       %span.item__price__tax   (税 ¥0)
       %span.item__price__delivery_fee 送料込み
     - if @item.stock_status != "sold"
