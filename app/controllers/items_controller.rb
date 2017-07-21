@@ -18,12 +18,16 @@ class ItemsController < ApplicationController
 
   def new
     @item            = Item.new
+    @image           = @item.images.build
     @root_categories = RootCategory.all
   end
 
   def create
-    @item  = Item.create(item_params)
-    @image = Image.create(image_params(@item))
+    @item  = Item.create(item_create_params)
+    images = get_images
+    images.each do |image|
+      @image = @item.images.create!(image: image, item_id: @item.id )
+    end
     redirect_to root_path
   end
 
@@ -35,12 +39,24 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    item_attr = [:name, :price, :description, :brand, :sub_category_id, :status, :delivery_fee, :delivery_by, :delivery_from, :delivery_untill]
+    item_attr = [:name, :price, :description, :brand, :sub_category_id, :status, :delivery_fee,
+                 :delivery_by, :delivery_from, :delivery_untill,
+                 images_attributes:[:id, :item_id, :image]]
+    params.require(:item).permit(item_attr).merge(user_id:current_user.id)
+  end
+
+  def item_create_params
+    item_attr = [:name, :price, :description, :brand, :sub_category_id, :status, :delivery_fee,
+                 :delivery_by, :delivery_from, :delivery_untill]
     params.require(:item).permit(item_attr).merge(user_id:current_user.id)
   end
 
   def image_params(item)
     params.require(:item).permit(:image).merge(item_id:item.id)
+  end
+
+  def get_images
+    params.require(:item).require(:images_attributes).require("0").require(:image)
   end
 
   def search_params
@@ -56,7 +72,7 @@ class ItemsController < ApplicationController
   end
 
   def set_like
-    Like.where(user_id:current_user.id).find_by(item_id:params[:id])
+    Like.where(user_id:current_user.id).find_by(item_id:params[:id]) if user_signed_in?
   end
 
 end

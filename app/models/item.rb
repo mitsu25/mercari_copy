@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_many     :images
   has_one      :buyer
   has_many     :likes
-
+  accepts_nested_attributes_for :images
 
 #---------- enum -------------------------
 
