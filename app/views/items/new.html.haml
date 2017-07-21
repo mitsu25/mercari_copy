@@ -7,12 +7,13 @@
           %p.form__title 商品の情報入力
         .sell_form__inner
           .sell_form__inner__container
-            =f.label "出品画像", class: "sell_form__label sell_form__label--large"
-            %i.form__field__must_info 必須
-            %p.sell_form__supplement 最大4枚までアップロードできます。
-            %p.sell_form__drop_box__supplement クリックしてファイルをアップロード
-            = f.label :image, "クリックしてファイルをアップロード", class: 'sell_form__drop_box' do
-              = f.file_field :image, style: "display: none;", id: 'item_image'
+            =f.fields_for :images do |images_form|
+              =images_form.label "出品画像", class: "sell_form__label sell_form__label--large"
+              %i.form__field__must_info 必須
+              %p.sell_form__supplement 最大4枚までアップロードできます。
+              %p.sell_form__drop_box__supplement クリックしてファイルをアップロード
+              = f.label :image, "クリックしてファイルをアップロード", class: 'sell_form__drop_box' do
+                = images_form.file_field :image, style: "display: none;", id: 'item_image', multiple: true
         .sell_form__inner
           .sell_form__inner__container
             .sell_form__inner__container__sub_container
