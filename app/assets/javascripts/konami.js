@@ -8,7 +8,7 @@ $(function(){
 
 // ------------   メソッド  --------------------------
   function buildLaser(leftPosition,topPosition){
-    var laser = '<span class="laser" poition="relative" left="'+leftPosition+'px" top=' + topPosition+'px">******</p>';
+    var laser = '<div class="laser" style="left:'+leftPosition+'px; top:' + topPosition+'px;">******</div>';
     return laser;
   }
 
@@ -32,22 +32,38 @@ $(function(){
     // 指定のキーを押すたびにpositionの値を増減させる
     var gradiusSpeed   = 18
     var mevePerKeyDown = 15
+    var topMax         = 12.5
+    var bottomMax      = 402.5
+    var rightMax       = 1080
+    var leftMax        = -90
     $('html').keydown(function(e){
       switch(e.which){
         case 83: // Key[s]
-        $gradius.animate({left: '+='+ mevePerKeyDown +'px'},gradiusSpeed);
+        var position = $gradius.position();
+        if (position.left < rightMax){
+          $gradius.animate({left: '+='+ mevePerKeyDown +'px'},gradiusSpeed);
+        }
         break;
 
         case 65: // Key[a]
-        $gradius.animate({left: '-='+ mevePerKeyDown +'px'},gradiusSpeed);
+        var position = $gradius.position();
+        if (position.left > leftMax){
+          $gradius.animate({left: '-='+ mevePerKeyDown +'px'},gradiusSpeed);
+        }
         break;
 
         case 87: // Key[w]
-        $gradius.animate({top: '-='+ mevePerKeyDown +'px'},gradiusSpeed);
+        var position = $gradius.position();
+        if (position.top > topMax){
+          $gradius.animate({top: '-='+ mevePerKeyDown +'px'},gradiusSpeed);
+        }
         break;
 
         case 90: // Key[z]
-        $gradius.animate({top: '+='+ mevePerKeyDown +'px'},gradiusSpeed);
+        var position = $gradius.position();
+        if (position.top < bottomMax){
+          $gradius.animate({top: '+='+ mevePerKeyDown +'px'},gradiusSpeed);
+        }
         break;
       }
     });
@@ -56,15 +72,14 @@ $(function(){
     $('html').keydown(function(e){
       switch(e.which){
         case 76: // Key[l]
-        var leftPosition = $gradius.offset().left;
-        var topPosition = $gradius.offset().top;
+        var leftPosition = $gradius.position().left;
+        var topPosition = $gradius.position().top;
         var laser = buildLaser(leftPosition,topPosition);
         $frontImage.append(laser);
-        $gradius.append(laser);
         break;
       }
-      var $laser = $('.laser').animate({
-        left: "1000px"
-      }, 1000, "linear");
+      // var $laser = $('.laser').animate({
+      //   left: "1000px"
+      // }, 1000, "linear");
     });
 });
