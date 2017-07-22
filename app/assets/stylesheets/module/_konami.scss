@@ -11,3 +11,9 @@
     @include back_ground_image("gradius_bg_3.png","gradius_bg.jpg", 445px);
     animation : moveBg 15s infinite linear;
   }
+
+.laser{
+  color: white;
+  position: relative;
+  display: inline-block;
+}
