@@ -1,17 +1,19 @@
 class ApplicationController < ActionController::Base
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters  , if: :devise_controller?
   before_action :set_monthes, only: [:new, :edit], if: :devise_controller?
-  before_action :set_years, only: [:new, :edit], if: :devise_controller?
+  before_action :set_years  , only: [:new, :edit], if: :devise_controller?
   protect_from_forgery with: :exception
 
   def configure_permitted_parameters
-   added_attrs = [:name, :family_name, :first_name, :family_name_kana, :first_name_kana, :zip_code, :prefecture, :city, :house_number, :buildng, :telephone, :campany, :number, :expire_year, :expire_month]
+   added_attrs = [:name, :family_name, :first_name, :family_name_kana, :first_name_kana,
+                  :zip_code, :prefecture, :city, :house_number, :buildng, :telephone,
+                  :campany, :number, :expire_year, :expire_month]
    devise_parameter_sanitizer.permit(:sign_in, keys: added_attrs)
    devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
    devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
   end
 
-   def set_years
+  def set_years
     @years = []
     i = 0
     while i < 9 do
