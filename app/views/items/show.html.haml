@@ -11,19 +11,19 @@
             %span.item_box__image--sold SOLD
         .item__image_box__bottom
           - if @item.images[0].present?
-            = image_tag @item.images[0].image, class: "item__image_box__bottom__image item__image_box__bottom__image--over item_images"
+            = image_tag @item.images[0].image, class: "item__image_box__bottom__image item__image_box__bottom__image--over item_thumbnails"
           - else
             = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
           - if @item.images[1].present?
-            = image_tag @item.images[1].image, class: "item__image_box__bottom__image item_images"
+            = image_tag @item.images[1].image, class: "item__image_box__bottom__image item_thumbnails"
           - else
             = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
           - if @item.images[2].present?
-            = image_tag @item.images[2].image, class: "item__image_box__bottom__image item_images"
+            = image_tag @item.images[2].image, class: "item__image_box__bottom__image item_thumbnails"
           - else
             = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
           - if @item.images[3].present?
-            = image_tag @item.images[3].image, class: "item__image_box__bottom__image item_images"
+            = image_tag @item.images[3].image, class: "item__image_box__bottom__image item_thumbnails"
           - else
             = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
       %table.item__data_table
