@@ -14,18 +14,11 @@
             = image_tag @item.images[0].image, class: "item__image_box__bottom__image item__image_box__bottom__image--over item_thumbnails"
           - else
             = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
-          - if @item.images[1].present?
-            = image_tag @item.images[1].image, class: "item__image_box__bottom__image item_thumbnails"
-          - else
-            = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
-          - if @item.images[2].present?
-            = image_tag @item.images[2].image, class: "item__image_box__bottom__image item_thumbnails"
-          - else
-            = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
-          - if @item.images[3].present?
-            = image_tag @item.images[3].image, class: "item__image_box__bottom__image item_thumbnails"
-          - else
-            = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
+          - (1..3).each do |num|
+            - if @item.images[num].present?
+              = image_tag @item.images[num].image, class: "item__image_box__bottom__image item_thumbnails"
+            - else
+              = image_tag "logos/copicari_logo_small.png", class: "item__image_box__bottom__image"
       %table.item__data_table
         %tr
           %th 出品者
@@ -61,29 +54,30 @@
       %span.item__price__price ¥ #{@item.price.to_s(:delimited)}
       %span.item__price__tax   (税 ¥0)
       %span.item__price__delivery_fee 送料込み
-    - if @item.stock_status != "sold"
-      = link_to "購入", new_item_buyer_path(@item), class: "item__purchase_btn"
-    - else
-      .item__purchase_btn.item__purchase_btn--sold 売り切れました
-    .item__description #{@item.description}
-    .item__like_box
-      - if user_signed_in?
-        - if has_user_liked?(@item)
-          .item__like_box__btn#stop_like_btn{ data: {id: @like.id, user_id: current_user.id, item_id: @item.id} }
-            %span.fa.fa-heart#like_btn_icon<>
-            %i<>
-              いいね
-            %span#item__like_box__btn_likes_number #{get_likes_number(@item)}
+    - unless is_item_current_users? @item
+      - if @item.stock_status != "sold"
+        = link_to "購入", new_item_buyer_path(@item), class: "item__purchase_btn"
+      - else
+        .item__purchase_btn.item__purchase_btn--sold 売り切れました
+      .item__description #{@item.description}
+      .item__like_box
+        - if user_signed_in?
+          - if has_user_liked?(@item)
+            .item__like_box__btn#stop_like_btn{ data: {id: @like.id, user_id: current_user.id, item_id: @item.id} }
+              %span.fa.fa-heart#like_btn_icon<>
+              %i<>
+                いいね
+              %span#item__like_box__btn_likes_number #{get_likes_number(@item)}
+          - else
+            .item__like_box__btn#like_btn{ data: {user_id: current_user.id, item_id: @item.id} }
+              %span.fa.fa-heart-o#like_btn_icon<>
+              %i<>
+                いいね
+              %span#item__like_box__btn_likes_number #{get_likes_number(@item)}
         - else
-          .item__like_box__btn#like_btn{ data: {user_id: current_user.id, item_id: @item.id} }
+          .item__like_box__btn#like_btn
             %span.fa.fa-heart-o#like_btn_icon<>
             %i<>
               いいね
             %span#item__like_box__btn_likes_number #{get_likes_number(@item)}
-      - else
-        .item__like_box__btn#like_btn
-          %span.fa.fa-heart-o#like_btn_icon<>
-          %i<>
-            いいね
-          %span#item__like_box__btn_likes_number #{get_likes_number(@item)}
   = render partial: "layouts/footer"
