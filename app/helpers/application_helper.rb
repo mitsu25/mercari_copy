@@ -8,6 +8,14 @@ module ApplicationHelper
     item.likes.present?
   end
 
+  def is_item_current_users?(item)
+    if user_signed_in?
+      return item.user_id == current_user.id
+    else
+      return false
+    end
+  end
+
   def get_likes_number(item)
     likes_number = item.likes.count
     if likes_number > 0
