@@ -64,11 +64,11 @@ class ItemsController < ApplicationController
   end
 
   def set_all_items
-    Item.all.includes(:images).each_slice(4).to_a
+    Item.all.includes(:images,:likes).each_slice(4).to_a
   end
 
   def set_all_items_without_my_items
-    Item.where.not(user_id:current_user.id).includes(:images).each_slice(4).to_a
+    Item.where.not(user_id:current_user.id).includes(:images,:likes).each_slice(4).to_a
   end
 
   def set_like
